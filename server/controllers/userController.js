@@ -39,7 +39,6 @@ export const purchaseCourse = async (req, res) => {
   try {
     const { courseId } = req.body;
     const { origin } = req.headers;
-    const userId = req.auth.userId;
 
     if (!courseId) {
       return res.status(400).json({ success: false, message: "Course ID is required" });
@@ -65,7 +64,7 @@ export const purchaseCourse = async (req, res) => {
       mode: 'payment',
       success_url: `${origin}/payment-success`,
       cancel_url: `${origin}/payment-cancel`,
-      metadata: { courseId, userId }
+      metadata: { courseId },
     });
 
     res.json({ success: true, session_url: session.url });
@@ -196,61 +195,49 @@ export const addUserRating = async (req, res) => {
 
 export const paypalCreateOrder = async (req, res) => {
   try {
-    const { courseId } = req.body;
+    const { amount, description } = req.body;
     const { origin } = req.headers;
 
-    console.log("Received courseId:", req.body.courseId); // Debugging log
-    console.log("Origin:", origin); // Debugging log
-
-    const course = await Course.findById(courseId);
-    if (!course) return res.json({ success: false, message: "Course not found" });
-
-    const price = (course.coursePrice - course.discount * course.coursePrice / 100).toFixed(2);
-
-    // Get PayPal access token
     const auth = Buffer.from(`${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_SECRET}`).toString('base64');
     const tokenRes = await fetch('https://api-m.sandbox.paypal.com/v1/oauth2/token', {
       method: 'POST',
       headers: {
         'Authorization': `Basic ${auth}`,
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: 'grant_type=client_credentials'
+      body: 'grant_type=client_credentials',
     });
     const tokenData = await tokenRes.json();
 
-    // Create order
     const orderRes = await fetch('https://api-m.sandbox.paypal.com/v2/checkout/orders', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenData.access_token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         intent: 'CAPTURE',
         purchase_units: [{
-          amount: { currency_code: 'USD', value: price }
+          amount: { currency_code: 'USD', value: amount },
+          description,
         }],
         application_context: {
           return_url: `${origin}/payment-success`,
-          cancel_url: `${origin}/payment-cancel`
-        }
-      })
+          cancel_url: `${origin}/payment-cancel`,
+        },
+      }),
     });
     const orderData = await orderRes.json();
-
-    // Debugging log
-    console.log("PayPal Order Data:", orderData);
 
     const approvalUrl = orderData.links.find(link => link.rel === 'approve')?.href;
     if (!approvalUrl) {
       return res.status(500).json({ success: false, message: "Approval URL not found" });
     }
 
-    res.json({ success: true, approvalUrl }); // ✅
+    res.json({ success: true, approvalUrl });
   } catch (error) {
-    console.error("PayPal Error:", error); // Debugging log
-    res.json({ success: false, message: error.message }); // ✅ Correct
+    console.error("PayPal Error:", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
@@ -258,45 +245,29 @@ export const purchaseCourseStripe = async (req, res) => {
   try {
     const { courseId, amount } = req.body;
     const { origin } = req.headers;
-    const userId = req.auth.userId;
 
-    const courseData = await Course.findById(courseId);
-    const userData = await User.findById(userId);
-
-    if (!userData || !courseData) {
-      return res.json({ success: false, message: "Data Not Found" });
+    if (!courseId || !amount) {
+      return res.status(400).json({ success: false, message: "Course ID and amount are required" });
     }
 
-    const purchaseData = {
-      courseId: courseData._id,
-      userId,
-      amount: amount.toFixed(2),
-    };
-
-    const newPurchase = await Purchase.create(purchaseData);
-
-    const line_items = [
-      {
+    const session = await stripeInstance.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
         price_data: {
-          currency: "usd",
-          product_data: { name: courseData.courseTitle },
-          unit_amount: Math.floor(amount * 100), // Convert to cents
+          currency: 'usd',
+          product_data: { name: `Course ID: ${courseId}` },
+          unit_amount: Math.floor(amount * 100),
         },
         quantity: 1,
-      },
-    ];
-
-    const session = await stripeInstance.checkout.sessions.create({
+      }],
+      mode: 'payment',
       success_url: `${origin}/payment-success`,
       cancel_url: `${origin}/payment-cancel`,
-      line_items,
-      mode: "payment",
-      metadata: { purchaseId: newPurchase._id.toString() },
     });
 
     res.json({ success: true, session_url: session.url });
   } catch (error) {
-    console.error("Stripe Error:", error);
+    console.error("Stripe Payment Error:", error);
     res.status(500).json({ success: false, message: error.message });
   }
 };

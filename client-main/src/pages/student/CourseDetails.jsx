@@ -71,34 +71,24 @@ const CourseDetails = () => {
 
 
   const enrollCourse = async () => {
-    console.log('userData:', userData); // Add this line
-
     try {
-
-      if (!userData) {
-        return toast.warn('Login to Enroll')
-      }
-
       if (isAlreadyEnrolled) {
-        return toast.warn('Already Enrolled')
+        return toast.warn('Already Enrolled');
       }
 
-      const token = await getToken();
-
-      const { data } = await axios.post(backendUrl + '/api/user/purchase',
-        { courseId: courseData._id },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
+      const { data } = await axios.post(
+        backendUrl + '/api/user/purchase',
+        { courseId: courseData._id }
+      );
 
       if (data.success) {
-        const { session_url } = data
-        window.location.replace(session_url) // Redirects to Stripe Checkout
+        const { session_url } = data;
+        window.location.replace(session_url); // Redirects to Stripe Checkout
       } else {
-        toast.error(data.message)
+        toast.error(data.message);
       }
-
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
   }
 
@@ -636,23 +626,97 @@ const CourseDetails = () => {
         </div>
       </div> 
       
+      
       {/* Top Companies */}
       <div className="my-12 px-4 py-10 bg-white rounded-xl shadow-lg">
-        <h2 className="text-3xl md:text-4xl font-bold text-black text-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-black text-center mb-12">
           Top Companies Hiring in This Domain
         </h2>
-        <div className="flex flex-wrap gap-4 justify-center text-lg text-gray-700 font-medium">
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Google</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Amazon</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">TCS</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Deloitte</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Microsoft</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">IBM</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Infosys</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Accenture</span>
-          <span className="bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors duration-300">Startups & Unicorns</span>
+
+        {/* Google */}
+        <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={assets.google_logo} // Replace with the actual Google logo path
+              alt="Google"
+              className="h-auto max-w-full"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-gray-700 text-lg font-medium">
+            <h3 className="text-2xl font-bold text-black mb-4">Google</h3>
+            <p>
+              V-EDU graduates have landed roles at Google by showcasing expertise in machine learning, cloud platforms (GCP), and scalable systems design. Our advanced coursework and project-based learning mirror Google’s rigorous hiring expectations — preparing learners for roles in AI, data engineering, and product development.
+            </p>
+          </div>
         </div>
-        <p className="text-xs text-gray-500 mt-2 text-center">(Based on current trends and industry demand)</p>
+
+        {/* Amazon */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-8 mb-12">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={assets.amazon_logo} // Replace with the actual Amazon logo path
+              alt="Amazon"
+              className="h-auto max-w-full"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-gray-700 text-lg font-medium">
+            <h3 className="text-2xl font-bold text-black mb-4">Amazon</h3>
+            <p>
+              With a strong focus on problem-solving, AWS cloud architecture, and data-driven thinking, our students have successfully transitioned into tech roles at Amazon. V-EDU’s curriculum includes real-world simulations that align with Amazon’s Leadership Principles and technical assessments.
+            </p>
+          </div>
+        </div>
+
+        {/* Microsoft */}
+        <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={assets.microsoft_logo} // Replace with the actual Microsoft logo path
+              alt="Microsoft"
+              className="h-auto md:w-48"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-gray-700 text-lg font-medium">
+            <h3 className="text-2xl font-bold text-black mb-4">Microsoft</h3>
+            <p>
+              Microsoft hires professionals skilled in Azure, full-stack development, data science, and cybersecurity — all key pillars of V-EDU’s programs. Through hands-on projects, students gain the confidence and technical fluency needed to excel at Microsoft’s fast-paced, innovation-driven culture.
+            </p>
+          </div>
+        </div>
+
+        {/* IBM */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-8 mb-12">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={assets.ibm_logo} // Replace with the actual IBM logo path
+              alt="IBM"
+              className="h-auto max-w-full"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-gray-700 text-lg font-medium">
+            <h3 className="text-2xl font-bold text-black mb-4">IBM</h3>
+            <p>
+              IBM values professionals who combine technical depth with analytical thinking, especially in areas like AI, automation, and cloud computing. V-EDU’s courses equip learners with real-time lab experience and IBM-aligned tools, enabling smooth integration into roles like AI engineer or cloud consultant.
+            </p>
+          </div>
+        </div>
+
+        {/* Deloitte */}
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={assets.deloitte_logo} // Replace with the actual Deloitte logo path
+              alt="Deloitte"
+              className="h-auto max-w-full"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-gray-700 text-lg font-medium">
+            <h3 className="text-2xl font-bold text-black mb-4">Deloitte</h3>
+            <p>
+              As one of the Big Four, Deloitte seeks tech talent for consulting, data analytics, cloud transformation, and cybersecurity strategy. Our career coaching, case-study simulations, and soft skills training help V-EDU graduates thrive in client-facing, high-impact roles at Deloitte.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* ABOUT V-EDU.us LLC */}

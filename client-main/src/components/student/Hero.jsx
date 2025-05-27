@@ -15,19 +15,20 @@ const Hero = () => {
       {/* Black Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
-      <h1 className="md:text-7xl text-4xl relative font-bold text-white max-w-4xl mx-auto md:mt-[-40px] mt-[-20px]">
-       
-        <img src={assets.sketch} alt="sketch" className="md:block hidden absolute -bottom-7 right-0" />
+      {/* Heading */}
+      <h1 className="md:text-6xl text-3xl relative font-bold text-white max-w-4xl mx-auto z-10">
+        Launch Your Tech Career with Confidence
       </h1>
-      <p className="md:block hidden text-white max-w-2xl mx-auto font-bold md:text-xl">
-       
+
+      {/* Subheading */}
+      <p className="md:text-xl text-lg text-white max-w-2xl mx-auto font-medium mt-4 z-10">
+        Master in-demand skills in Data Science, Machine Learning, React, and more — with real support from learning to landing the job.
       </p>
-      <p className="md:hidden text-white max-w-sm mx-auto font-bold text-lg">
-       
-      </p>
-      <div className="pb-1820 relative z-20">
+
+      {/* Call Us Button */}
+      <div className="absolute bottom-20 z-20"> {/* Adjusted bottom from 10 to 20 */}
         <a href="tel:+18883444990">
-          <button className="call-us-btn">
+          <button className="call-us-btn px-8 py-3 rounded-md bg-blue-600 text-white font-bold hover:bg-blue-700 transition">
             Call Us
           </button>
         </a>

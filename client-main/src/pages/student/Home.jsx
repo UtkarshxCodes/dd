@@ -67,9 +67,9 @@ const Home = () => {
     }
 
     try {
-      const res = await fetch("/api/user/purchase-stripe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('https://www.v-edu.us/api/user/purchase-stripe', { // Production URL
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           courseId: selectedCourse._id,
           amount,
@@ -95,7 +95,7 @@ const Home = () => {
     }
 
     try {
-      const res = await fetch('/api/user/paypal-create-order', {
+      const res = await fetch('https://www.v-edu.us/api/user/paypal-create-order', { // Production URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -117,13 +117,13 @@ const Home = () => {
   };
 
   const handleApplyCoupon = async (coupon) => {
-    const res = await fetch('/api/user/apply-coupon', {
+    const res = await fetch('https://www.v-edu.us/api/user/apply-coupon', { // Production URL
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Origin': window.location.origin
+        'Origin': window.location.origin,
       },
-      body: JSON.stringify({ couponCode: coupon, courseId: selectedCourse?._id })
+      body: JSON.stringify({ couponCode: coupon, courseId: selectedCourse?._id }),
     });
 
     const data = await res.json();

@@ -4,7 +4,6 @@ import 'dotenv/config'
 import connectDB from './configs/mongodb.js'
 import connectCloudinary from './configs/cloudinary.js'
 import userRouter from './routes/userRoutes.js'
-import { clerkMiddleware } from '@clerk/express'
 import { clerkWebhooks, stripeWebhooks } from './controllers/webhooks.js'
 import educatorRouter from './routes/educatorRoutes.js'
 import courseRouter from './routes/courseRoute.js'
@@ -19,7 +18,6 @@ await connectCloudinary()
 
 // Middlewares
 app.use(cors({ origin: true, credentials: true }))
-app.use(clerkMiddleware())
 app.use(express.json())
 
 // PayPal configuration
@@ -53,7 +51,7 @@ app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks, a
 })
 app.use('/api/educator', educatorRouter)
 app.use('/api/course', express.json(), courseRouter)
-app.use('/api/user', express.json(), userRouter)
+app.use('/api/user', express.json(), userRouter);
 
 // Route to create a PayPal payment
 app.post('/api/user/paypal-create-order', async (req, res) => {
