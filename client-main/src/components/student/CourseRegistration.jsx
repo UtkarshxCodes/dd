@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PaymentModal from "./Paymentmodel";
+import PaymentOptionsModal from "./PaymentOptionsModal"; // Import the new modal
 
 const CourseRegistration = ({ isOpen, setIsOpen }) => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ const CourseRegistration = ({ isOpen, setIsOpen }) => {
     mobile: "",
     course: "",
   });
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showPaymentOptions, setShowPaymentOptions] = useState(false); // State for the new modal
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ const CourseRegistration = ({ isOpen, setIsOpen }) => {
 
     try {
       console.log("Registration data:", formData);
-      setShowPaymentModal(true); // Open the PaymentModal after registration
+      setShowPaymentOptions(true); // Open the new PaymentOptionsModal
     } catch (error) {
       console.error("Registration Error:", error);
       alert("Failed to register. Please try again.");
@@ -107,21 +107,10 @@ const CourseRegistration = ({ isOpen, setIsOpen }) => {
         </div>
       )}
 
-      {/* Payment Modal */}
-      <PaymentModal
-        isOpen={showPaymentModal}
-        onClose={() => setShowPaymentModal(false)}
-        paymentContext="registration" // Specify context as "registration"
-        coursePrice={199} // Fixed amount for registration
-        discountAmount={0} // No discount for registration
-        onPaypalPay={(amount) => {
-          console.log("PayPal Payment for Registration:", amount);
-          // Add PayPal payment logic here
-        }}
-        onStripePay={(amount) => {
-          console.log("Stripe Payment for Registration:", amount);
-          // Add Stripe payment logic here
-        }}
+      {/* Payment Options Modal */}
+      <PaymentOptionsModal
+        isOpen={showPaymentOptions}
+        onClose={() => setShowPaymentOptions(false)}
       />
     </>
   );

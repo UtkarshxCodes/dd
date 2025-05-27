@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { assets } from '../../assets/assets';
 import { AppContext } from '../../context/AppContext';
 
-const CourseCard = ({ course, onEnroll }) => {
+const CourseCard = ({ course }) => {
     const { currency } = useContext(AppContext);
+    const navigate = useNavigate(); // Initialize useNavigate
 
     return (
         <div className="border border-gray-500/30 pb-6 overflow-hidden rounded-lg">
@@ -49,7 +50,10 @@ const CourseCard = ({ course, onEnroll }) => {
             </Link>
             <div className="flex justify-center mt-4">
                 <button
-                    onClick={() => onEnroll(course)}
+                    onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+                        navigate(`/course/${course._id}`); // Navigate to course details
+                    }}
                     className="bg-blue-600 text-white font-bold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:scale-105"
                 >
                     Enroll Now

@@ -15,6 +15,7 @@ import certificate3 from '../../assets/certificate3.png';
 import PaymentModal from '../../components/student/Paymentmodel';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import EnrollNowModal from '../../components/student/EnrollNowModal'; // Import the new modal
 
 // Utility function to generate random ratings and student counts
 const generateRandomCourseStats = (courseId) => {
@@ -32,6 +33,7 @@ const CourseDetails = () => {
   const [playerData, setPlayerData] = useState(null);
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showEnrollNowModal, setShowEnrollNowModal] = useState(false); // State to control modal visibility
   const [discountAmount, setDiscountAmount] = useState(0);
   const [couponError, setCouponError] = useState("");
 
@@ -415,7 +417,10 @@ const CourseDetails = () => {
                 <p>12 lessons</p>
               </div>
             </div>
-            <button onClick={() => setShowPaymentModal(true)} className="md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium">
+            <button
+              onClick={() => setShowEnrollNowModal(true)} // Open the modal
+              className="md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium"
+            >
               {isAlreadyEnrolled ? "Already Enrolled" : "Enroll Now"}
             </button>
             <div className="pt-6">
@@ -772,6 +777,11 @@ const CourseDetails = () => {
         couponError={couponError}
         onStripePay={handleStripePay}
         onPaypalPay={handlePaypalPay}
+      />
+
+      <EnrollNowModal
+        isOpen={showEnrollNowModal}
+        onClose={() => setShowEnrollNowModal(false)} // Close the modal
       />
 
       <Footer />

@@ -67,7 +67,7 @@ const Home = () => {
     }
 
     try {
-      const res = await fetch('https://www.v-edu.us/api/user/purchase-stripe', { // Production URL
+      const res = await fetch('http://localhost:5000/api/user/purchase-stripe', { // Production URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -95,7 +95,7 @@ const Home = () => {
     }
 
     try {
-      const res = await fetch('https://www.v-edu.us/api/user/paypal-create-order', { // Production URL
+      const res = await fetch('http://localhost:5000/api/user/paypal-create-order', { // Production URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -117,7 +117,7 @@ const Home = () => {
   };
 
   const handleApplyCoupon = async (coupon) => {
-    const res = await fetch('https://www.v-edu.us/api/user/apply-coupon', { // Production URL
+    const res = await fetch('http://localhost:5173/api/user/apply-coupon', { // Production URL
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -187,7 +187,7 @@ const Home = () => {
       <menu id="fab-menu" ref={fabRef} style={fabStyle}>
         <button
           type="button"
-          className="action"
+          className="action fab-glow" // Added "fab-glow" class for glowing effect
           onClick={() => setShowRegistration(true)}
           aria-label="Register"
         >
