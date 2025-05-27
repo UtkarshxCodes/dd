@@ -1,0 +1,28 @@
+.call-us-btn {
+  background-color: #ffffff; /* White background */
+  color: #000; /* Black text */
+  font-size: 1.2rem; /* Slightly larger text size */
+  font-weight: bold;
+  padding: 1rem 2rem; /* Larger padding for a professional rectangular look */
+  border: none; /* Remove border */
+  border-radius: 6px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  animation: float 2s infinite ease-in-out; /* Idle up-and-down animation */
+}
+
+.call-us-btn:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.6); /* Glowing effect */
+}
+
+/* Keyframes for up-and-down animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Start and end at the same position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up slightly */
+  }
+}

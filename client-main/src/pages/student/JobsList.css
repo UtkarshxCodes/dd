@@ -1,0 +1,118 @@
+.jobs-list-section {
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.jobs-list-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.jobs-list-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.jobs-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.jobs-list-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between; /* Align content and button */
+  align-items: center; /* Center align button vertically */
+  padding: 1.5rem;
+}
+
+.jobs-list-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.jobs-list-card-main {
+  flex: 1; /* Take up remaining space */
+}
+
+.jobs-list-card-main h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.jobs-list-card-main .company {
+  color: #4680e7;
+  font-weight: 500;
+}
+
+.jobs-list-card-main .location {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.jobs-list-card-main .desc {
+  color: #333;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.jobs-list-meta {
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.jobs-list-meta .salary {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.jobs-list-meta .hourly {
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.apply-btn {
+  background-color: #f8f9fa; /* Lightest grey */
+  border: 1px solid #ddd; /* Subtle border for visibility */
+  border-radius: 4px;
+  color: #333; /* Darker text for contrast */
+  cursor: pointer;
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 0.4rem 0.8rem; /* Smaller padding */
+  transition: background-color 0.2s, color 0.2s;
+  margin-left: 1rem; /* Add spacing from the content */
+}
+
+.apply-btn:hover {
+  background-color: #e9ecef; /* Slightly darker grey on hover */
+  color: #000; /* Darker text on hover */
+}
+
+@media (max-width: 700px) {
+  .jobs-list-horizontal {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .jobs-list-card {
+    margin: 0 auto;
+    max-width: 98vw;
+    min-width: 90vw;
+    flex-direction: column; /* Stack content and button vertically on small screens */
+    align-items: flex-start;
+  }
+
+  .apply-btn {
+    margin-left: 0;
+    margin-top: 1rem; /* Add spacing above the button */
+  }
+}
