@@ -12,6 +12,9 @@ import CourseRegistration from '../../components/student/CourseRegistration';
 import PaymentModal from '../../components/student/Paymentmodel';
 import { assets } from '../../assets/assets';
 import './JobsList.css';
+import Carousel from '../../components/student/carousal';
+import CountsSection from '../../components/student/CountsSection';
+import Content from '../../components/student/content';
 
 const Home = () => {
   const jobsRef = useRef(null);
@@ -137,61 +140,72 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center space-y-7 text-center px-4 md:px-8 lg:px-16">
-        <Hero />
-        <ErrorBoundary>
-          <Companies />
-        </ErrorBoundary>
-        <div ref={jobsRef}>
-          <JobPostingSection />
+      {/* Universal Container */}
+      <div className="overflow-x-hidden w-full">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-16">
+          <div className="flex flex-col items-center space-y-7 text-center">
+            <Hero />
+            <Carousel />
+            <CountsSection/>
+            <Content />
+            <ErrorBoundary>
+              <Companies />
+            </ErrorBoundary>
+            <div ref={jobsRef}>
+              <JobPostingSection />
+            </div>
+            <CoursesSection
+              onEnroll={(course) => {
+                setSelectedCourse(course);
+                setShowPaymentModal(true);
+              }}
+            />
+          </div>
         </div>
-        <CoursesSection
-          onEnroll={(course) => {
-            setSelectedCourse(course);
-            setShowPaymentModal(true);
-          }}
-        />
+
+        <section className="relative w-full h-[400px] flex items-center justify-center bg-black">
+          <div className="flex w-full h-full">
+            {/* First Video */}
+            <video
+              className="w-1/2 h-full object-cover object-right"
+              src={assets.videolms}
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+
+            {/* Second Video */}
+            <video
+              className="w-1/2 h-full object-cover"
+              src={assets.video1}
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+          </div>
+          <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        </section>
+
+        <StepsSection />
+        <TestimonialsSection />
+        <CallToAction />
+        <Footer />
       </div>
-
-      <section className="relative w-full h-[400px] flex items-center justify-center bg-black">
-        <div className="flex w-full h-full">
-          {/* First Video */}
-          <video
-            className="w-1/2 h-full object-cover object-right" // Adjusted object position
-            src={assets.videolms}
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
-
-          {/* Second Video */}
-          <video
-            className="w-1/2 h-full object-cover"
-            src={assets.video1}
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
-        </div>
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-      </section>
-
-      <StepsSection />
-      <TestimonialsSection />
-      <CallToAction />
-      <Footer />
 
       {/* Floating FAB */}
       <menu id="fab-menu" ref={fabRef} style={fabStyle}>
         <button
           type="button"
-          className="action fab-glow" // Added "fab-glow" class for glowing effect
+          className="action fab-glow animated-fab"
           onClick={() => setShowRegistration(true)}
           aria-label="Register"
         >
-          <i className="fas fa-clipboard-list"></i>
+          <span className="fab-icon">
+            <i className="fas fa-clipboard-list"></i>
+          </span>
+          <span className="fab-text">Register Now</span>
         </button>
       </menu>
 

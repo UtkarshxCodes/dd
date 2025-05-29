@@ -55,7 +55,10 @@ import details3 from './details3.png';
 import details4 from './details4.png';
 import details5 from './details5.png';
 import video1 from './video1.mp4'; 
-
+import counts from './counts.png'; 
+import carousal1 from './carousal1.png';
+import carousal2 from './carousal2.png';
+import carousal3 from './carousal3.png';
 export const assets = {
     logo,
     search_icon,
@@ -114,6 +117,10 @@ export const assets = {
     details4,
     details5,
     video1,
+    counts,
+    carousal1,
+    carousal2,
+    carousal3,
 }
 
 export const dummyTestimonial = [

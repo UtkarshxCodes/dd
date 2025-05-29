@@ -8,8 +8,6 @@ import axios from 'axios';
 
 const Navbar = ({ jobsRef }) => {
   const location = useLocation();
-  const isCoursesListPage = location.pathname.includes('/course-list');
-
   const { backendUrl, isEducator, setIsEducator, navigate, getToken } = useContext(AppContext);
   const { openSignIn } = useClerk();
   const { user } = useUser();
@@ -38,14 +36,12 @@ const Navbar = ({ jobsRef }) => {
 
   const handleScrollToJobs = () => {
     if (location.pathname === "/") {
-      // Already on home, just scroll
       window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
     } else {
-      // Navigate to home, then scroll after navigation
       navigate('/');
       setTimeout(() => {
         window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
-      }, 100); // Delay to ensure Home is mounted
+      }, 100);
     }
   };
 
@@ -54,90 +50,139 @@ const Navbar = ({ jobsRef }) => {
   };
 
   return (
-    <div
-      className={`flex items-center justify-between px-4 sm:px-10 md:px-14 lg:px-36 border-b border-gray-300 py-3 bg-white`}
-    >
-      {/* Logo */}
-      <img
-        onClick={() => navigate('/')}
-        src={assets.logo}
-        alt="Logo"
-        className="w-24 lg:w-28 cursor-pointer"
-      />
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-16 border-b border-gray-300 h-20">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <img
+            onClick={() => navigate('/')}
+            src={assets.logo}
+            alt="Logo"
+            className="w-24 lg:w-28 cursor-pointer"
+          />
+        </div>
 
-      {/* Navigation Links in the Middle */}
-      <div className="flex items-center gap-8 text-gray-700 font-serif text-lg">
-        <button
-          type="button"
-          onClick={handleCoursesClick}
-          className="hover:text-blue-600 transition"
-        >
-          Courses
-        </button>
-        <button
-          type="button"
-          onClick={handleScrollToJobs}
-          className="hover:text-blue-600 transition"
-        >
-          Live Jobs
-        </button>
-        <Link to="/about" className="hover:text-blue-600 transition">
-          About Us
-        </Link>
-        <Link to="/contact" className="hover:text-blue-600 transition">
-          Contact Page
-        </Link>
-      </div>
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center gap-8 text-gray-700 font-serif text-lg">
+          <Link to="/" className="hover:text-blue-600 transition">
+            Home
+          </Link>
+          <button
+            type="button"
+            onClick={handleCoursesClick}
+            className="hover:text-blue-600 transition"
+          >
+            Courses
+          </button>
+          <button
+            type="button"
+            onClick={handleScrollToJobs}
+            className="hover:text-blue-600 transition"
+          >
+            Live Jobs
+          </button>
+          <Link to="/about" className="hover:text-blue-600 transition">
+            About Us
+          </Link>
+          <Link to="/contact" className="hover:text-blue-600 transition">
+            Contact Page
+          </Link>
+        </div>
 
-      {/* User Section */}
-      <div className="md:flex hidden items-center gap-5 text-gray-700">
-        <div className="flex items-center gap-5">
-          {user && (
+        {/* Contact Section and User Section */}
+        <div className="hidden md:flex items-center gap-5 text-gray-700">
+          <a
+            href="tel:+18883444990"
+            className="text-blue-900 font-semibold hover:underline flex items-center gap-1"
+            style={{ whiteSpace: 'nowrap' }}
+          >
+            Got doubt? - +1 888-344-4990
+          </a>
+          {user ? (
             <>
-              {/* Contact Info Button */}
-              <a
-                href="tel:+18883444990"
-                className="text-blue-900 font-semibold hover:underline flex items-center gap-1"
-                style={{ whiteSpace: 'nowrap' }}
-              >
-                Got doubt? - +1 888-344-4990
-              </a>
-              {/* <button onClick={becomeEducator}>
-                {isEducator ? 'Educator Dashboard' : 'Become Educator'}
-              </button> */}
-              | <Link to="/my-enrollments">My Enrollments</Link>
+              <Link to="/my-enrollments" className="hover:text-blue-600 transition">
+                My Enrollments
+              </Link>
+              <UserButton />
             </>
+          ) : (
+            <button
+              onClick={() => openSignIn()}
+              className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold"
+            >
+              Create Account
+            </button>
           )}
         </div>
-        {user ? (
-          <UserButton />
-        ) : (
-          <button
-            onClick={() => openSignIn()}
-            className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold"
+
+        {/* Mobile Menu */}
+        <div className="md:hidden flex items-center gap-2 text-gray-700">
+          <a
+            href="tel:+18883444990"
+            className="text-blue-900 font-semibold hover:underline text-sm"
+            style={{ whiteSpace: 'nowrap' }}
           >
-            Create Account
+            Got doubt? - +1 888-344-4990
+          </a>
+          <button
+            className="text-gray-700 hover:text-blue-600 transition pr-2"
+            onClick={() => {
+              const menu = document.getElementById('mobile-menu');
+              menu.classList.toggle('hidden');
+            }}
+          >
+            <i className="fas fa-bars text-xl"></i>
           </button>
-        )}
+        </div>
       </div>
 
-      {/* For Phone Screens */}
-      <div className="md:hidden flex items-center gap-2 sm:gap-5 text-gray-700">
-        <div className="flex items-center gap-1 sm:gap-2 max-sm:text-xs">
-          <button onClick={becomeEducator}>
-            {isEducator ? 'Educator Dashboard' : 'Become Educator'}
+      {/* Mobile Menu Content */}
+      <div
+        id="mobile-menu"
+        className="hidden absolute top-full right-4 w-64 bg-white bg-opacity-90 shadow-lg border border-gray-300 z-50 max-h-[300px] overflow-y-auto rounded-lg"
+      >
+        <div className="flex flex-col items-start gap-4 p-4">
+          <Link to="/" className="hover:text-blue-600 transition">
+            Home
+          </Link>
+          <button
+            type="button"
+            onClick={handleCoursesClick}
+            className="hover:text-blue-600 transition"
+          >
+            Courses
           </button>
-          | {user && <Link to="/my-enrollments">My Enrollments</Link>}
+          <button
+            type="button"
+            onClick={handleScrollToJobs}
+            className="hover:text-blue-600 transition"
+          >
+            Live Jobs
+          </button>
+          <Link to="/about" className="hover:text-blue-600 transition">
+            About Us
+          </Link>
+          <Link to="/contact" className="hover:text-blue-600 transition">
+            Contact Page
+          </Link>
+          {user ? (
+            <>
+              <Link to="/my-enrollments" className="hover:text-blue-600 transition">
+                My Enrollments
+              </Link>
+              <UserButton />
+            </>
+          ) : (
+            <button
+              onClick={() => openSignIn()}
+              className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold"
+            >
+              Create Account
+            </button>
+          )}
         </div>
-        {user ? (
-          <UserButton />
-        ) : (
-          <button onClick={() => openSignIn()}>
-            <img src={assets.user_icon} alt="" />
-          </button>
-        )}
       </div>
-    </div>
+    </nav>
   );
 };
 
