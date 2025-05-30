@@ -3,6 +3,7 @@ import { AppContext } from '../../context/AppContext';
 import CourseCard from './CourseCard';
 import { Link } from 'react-router-dom';
 import { assets } from '../../assets/assets';
+import './CoursesSection.css'; // Import the CSS file
 
 const CoursesSection = ({ onEnroll }) => {
   const { allCourses } = useContext(AppContext);

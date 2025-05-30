@@ -164,10 +164,10 @@ const Home = () => {
         </div>
 
         <section className="relative w-full h-[400px] flex items-center justify-center bg-black">
-          <div className="flex w-full h-full">
+          <div className="flex w-full h-full flex-wrap md:flex-nowrap">
             {/* First Video */}
             <video
-              className="w-1/2 h-full object-cover object-right"
+              className="w-full md:w-1/2 h-[200px] md:h-full object-cover object-right"
               src={assets.videolms}
               autoPlay
               loop
@@ -177,7 +177,7 @@ const Home = () => {
 
             {/* Second Video */}
             <video
-              className="w-1/2 h-full object-cover"
+              className="w-full md:w-1/2 h-[200px] md:h-full object-cover"
               src={assets.video1}
               autoPlay
               loop

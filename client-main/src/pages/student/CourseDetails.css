@@ -1,0 +1,184 @@
+/* General Styling */
+.course-details {
+  padding: 1rem; /* Default padding for mobile screens */
+}
+
+.course-details h1,
+.course-details h2,
+.course-details h3 {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Course Title */
+.course-title {
+  font-size: 1.5rem; /* Smaller font size for mobile screens */
+  text-align: center; /* Center the title for mobile screens */
+  margin-bottom: 1rem;
+}
+
+/* Course Description */
+.course-description {
+  font-size: 0.875rem; /* Smaller font size for mobile screens */
+  line-height: 1.5; /* Improve readability */
+  margin-bottom: 1rem;
+}
+
+/* Course Stats */
+.course-stats {
+  display: flex;
+  flex-wrap: wrap; /* Stack stats vertically for mobile screens */
+  gap: 0.5rem;
+  justify-content: center; /* Center stats for mobile screens */
+}
+
+.course-stats div {
+  font-size: 0.875rem; /* Smaller font size for mobile screens */
+}
+
+/* Certificate Section */
+.certification {
+  margin-top: 2rem;
+  text-align: center; /* Center content for mobile screens */
+}
+
+.certification h2 {
+  font-size: 1.5rem; /* Smaller font size for mobile screens */
+}
+
+.certification p {
+  font-size: 0.875rem; /* Smaller font size for mobile screens */
+}
+
+.certification-images {
+  display: flex;
+  flex-wrap: wrap; /* Stack images vertically for mobile screens */
+  justify-content: center; /* Center images for mobile screens */
+  gap: 1rem; /* Add spacing between images */
+}
+
+.certification-images img {
+  max-width: 100%; /* Prevent images from leaking */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Add rounded corners for a professional look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Numbers Section */
+.numbers-section {
+  margin-top: 2rem;
+  text-align: center; /* Center content for mobile screens */
+}
+
+.numbers-section h2 {
+  font-size: 1.5rem; /* Smaller font size for mobile screens */
+}
+
+.numbers-section div {
+  font-size: 1rem; /* Adjust font size for mobile screens */
+}
+
+/* Career Support Section */
+.career-support {
+  margin-top: 2rem;
+  text-align: center; /* Center content for mobile screens */
+}
+
+.career-support h2 {
+  font-size: 1.5rem; /* Smaller font size for mobile screens */
+}
+
+.career-support p {
+  font-size: 0.875rem; /* Smaller font size for mobile screens */
+}
+
+/* Career Paths Section */
+.career-paths {
+  margin-top: 2rem;
+  text-align: center; /* Center content for mobile screens */
+}
+
+.career-paths h2 {
+  font-size: 1.5rem; /* Smaller font size for mobile screens */
+}
+
+.career-paths div {
+  font-size: 0.875rem; /* Smaller font size for mobile screens */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .course-details {
+    padding: 0.5rem; /* Reduce padding for tablets */
+  }
+
+  .course-title {
+    font-size: 1.25rem; /* Adjust font size for tablets */
+  }
+
+  .course-description {
+    font-size: 0.875rem; /* Adjust font size for tablets */
+  }
+
+  .course-stats div {
+    font-size: 0.875rem; /* Adjust font size for tablets */
+  }
+
+  .certification h2 {
+    font-size: 1.25rem; /* Adjust font size for tablets */
+  }
+
+  .certification-images img {
+    max-width: 90%; /* Adjust image width for tablets */
+  }
+
+  .numbers-section h2 {
+    font-size: 1.25rem; /* Adjust font size for tablets */
+  }
+
+  .career-support h2 {
+    font-size: 1.25rem; /* Adjust font size for tablets */
+  }
+
+  .career-paths h2 {
+    font-size: 1.25rem; /* Adjust font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .course-details {
+    padding: 0.5rem; /* Reduce padding for mobile screens */
+  }
+
+  .course-title {
+    font-size: 1rem; /* Adjust font size for mobile screens */
+  }
+
+  .course-description {
+    font-size: 0.75rem; /* Adjust font size for mobile screens */
+  }
+
+  .course-stats div {
+    font-size: 0.75rem; /* Adjust font size for mobile screens */
+  }
+
+  .certification h2 {
+    font-size: 1rem; /* Adjust font size for mobile screens */
+  }
+
+  .certification-images img {
+    max-width: 100%; /* Ensure images fit within the viewport */
+  }
+
+  .numbers-section h2 {
+    font-size: 1rem; /* Adjust font size for mobile screens */
+  }
+
+  .career-support h2 {
+    font-size: 1rem; /* Adjust font size for mobile screens */
+  }
+
+  .career-paths h2 {
+    font-size: 1rem; /* Adjust font size for mobile screens */
+  }
+}

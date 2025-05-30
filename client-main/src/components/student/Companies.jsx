@@ -3,15 +3,15 @@ import './Companies.css'; // Import the CSS file
 
 const Companies = () => {
   return (
-    <div className="pt-12"> {/* Reduced padding from top */}
-      <h1 className="trusted-heading">
-        Trusted by learners from
-      </h1>
+    <div className="pt-12">
+      <h2 className="trusted-heading text-blue-600 text-lg sm:text-xl font-medium text-center mb-4">
+        V-EDU Alumni Works with Global Companies
+      </h2>
       <div
         className="slider mt-8"
         style={{
           "--width": "120px", // Adjust the width of each image
-          "--height": "120px", // Increase the height to fit the logos
+          "--height": "120px", // Adjust the height to fit the logos
           "--quantity": "10", // Number of images
           "--spacing": "35px", // Add spacing between images
         }}

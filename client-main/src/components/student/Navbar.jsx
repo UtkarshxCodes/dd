@@ -12,37 +12,8 @@ const Navbar = ({ jobsRef }) => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
 
-  const becomeEducator = async () => {
-    try {
-      if (isEducator) {
-        navigate('/educator');
-        return;
-      }
-
-      const token = await getToken();
-      const { data } = await axios.get(backendUrl + '/api/educator/update-role', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (data.success) {
-        toast.success(data.message);
-        setIsEducator(true);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
-
-  const handleScrollToJobs = () => {
-    if (location.pathname === "/") {
-      window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
-      }, 100);
-    }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleCoursesClick = () => {
@@ -55,7 +26,10 @@ const Navbar = ({ jobsRef }) => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              scrollToTop();
+            }}
             src={assets.logo}
             alt="Logo"
             className="w-24 lg:w-28 cursor-pointer"
@@ -64,7 +38,11 @@ const Navbar = ({ jobsRef }) => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8 text-gray-700 font-serif text-lg">
-          <Link to="/" className="hover:text-blue-600 transition">
+          <Link
+            to="/"
+            className="hover:text-blue-600 transition"
+            onClick={scrollToTop}
+          >
             Home
           </Link>
           <button
@@ -76,7 +54,12 @@ const Navbar = ({ jobsRef }) => {
           </button>
           <button
             type="button"
-            onClick={handleScrollToJobs}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
+              }, 100);
+            }}
             className="hover:text-blue-600 transition"
           >
             Live Jobs
@@ -142,7 +125,11 @@ const Navbar = ({ jobsRef }) => {
         className="hidden absolute top-full right-4 w-64 bg-white bg-opacity-90 shadow-lg border border-gray-300 z-50 max-h-[300px] overflow-y-auto rounded-lg"
       >
         <div className="flex flex-col items-start gap-4 p-4">
-          <Link to="/" className="hover:text-blue-600 transition">
+          <Link
+            to="/"
+            className="hover:text-blue-600 transition"
+            onClick={scrollToTop}
+          >
             Home
           </Link>
           <button
@@ -154,7 +141,12 @@ const Navbar = ({ jobsRef }) => {
           </button>
           <button
             type="button"
-            onClick={handleScrollToJobs}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
+              }, 100);
+            }}
             className="hover:text-blue-600 transition"
           >
             Live Jobs

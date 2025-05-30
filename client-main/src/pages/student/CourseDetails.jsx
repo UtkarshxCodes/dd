@@ -16,6 +16,8 @@ import PaymentModal from '../../components/student/Paymentmodel';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import EnrollNowModal from '../../components/student/EnrollNowModal'; // Import the new modal
+import './CourseDetails.css'; // Import the CSS file
+
 
 // Utility function to generate random ratings and student counts
 const generateRandomCourseStats = (courseId) => {
@@ -253,7 +255,8 @@ const CourseDetails = () => {
   });
 
   return courseData ? (
-    <>
+    <div className="course-details">
+      {/* Page Content */}
       <div className="flex md:flex-row flex-col-reverse gap-10 relative items-start justify-between md:px-36 px-8 md:pt-20 pt-10 text-left">
         <div className="absolute top-0 left-0 w-full h-section-height -z-1 bg-gradient-to-b from-cyan-100/70"></div>
 
@@ -783,10 +786,8 @@ const CourseDetails = () => {
         isOpen={showEnrollNowModal}
         onClose={() => setShowEnrollNowModal(false)} // Close the modal
       />
-
-      <Footer />
-    </>
-  ) : <Loading />
+    </div>
+  ) : <Loading />;
 };
 
 export default CourseDetails;

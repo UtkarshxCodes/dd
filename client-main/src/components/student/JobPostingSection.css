@@ -162,28 +162,26 @@
 }
 
 .job-heading {
-  font-size: 2.5rem; /* Slightly smaller text */
-  font-weight: 700; /* Bold and professional */
+  font-size: 2rem; /* Default size for desktop */
+  font-weight: 700; /* Bold for emphasis */
   color: #007bff; /* Blue text color */
-  text-align: center; /* Center the text */
-  text-transform: uppercase; /* Make the text uppercase */
-  letter-spacing: 1.5px; /* Add slight spacing between letters */
-  margin-bottom: 2rem; /* Add spacing below the heading */
-  position: relative; /* For the glowing background */
+  text-align: center; /* Center the heading */
+  margin-bottom: 1.5rem; /* Space below the heading */
 }
 
-.job-heading::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%; /* Slightly larger than the text */
-  height: 120%; /* Slightly larger than the text */
-  background: radial-gradient(circle, rgba(0, 123, 255, 0.2), transparent); /* Subtle blue glow */
-  z-index: -1; /* Place behind the text */
-  border-radius: 10px; /* Smooth edges for the glow */
-  filter: blur(15px); /* Create a soft glowing effect */
+@media (max-width: 768px) {
+  .job-heading {
+    font-size: 1.75rem; /* Slightly smaller size for tablets */
+    margin-bottom: 1rem; /* Reduce spacing for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .job-heading {
+    font-size: 1.5rem; /* Further reduce size for mobile screens */
+    margin-bottom: 0.75rem; /* Adjust spacing for mobile devices */
+    line-height: 1.4; /* Improve readability on smaller screens */
+  }
 }
 
 .job-subheading {

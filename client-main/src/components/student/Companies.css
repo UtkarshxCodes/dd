@@ -84,26 +84,25 @@ main {
 }
 
 .trusted-heading {
-  font-size: 2.5rem; /* Slightly smaller text */
-  font-weight: 700; /* Bold but not overly heavy */
+  font-size: 1.5rem; /* Default size for desktop */
+  font-weight: 500; /* Medium weight for professional look */
   color: #007bff; /* Blue text color */
   text-align: center; /* Center the text */
-  text-transform: uppercase; /* Make the text uppercase */
-  letter-spacing: 1.5px; /* Add slight spacing between letters */
-  margin-bottom: 2rem; /* Add spacing below the heading */
-  position: relative; /* For the glowing background */
+  text-transform: none; /* Remove uppercase styling */
+  letter-spacing: 0.5px; /* Slight spacing for readability */
+  margin-bottom: 1rem; /* Reduced spacing below the heading */
 }
 
-.trusted-heading::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%; /* Slightly larger than the text */
-  height: 120%; /* Slightly larger than the text */
-  background: radial-gradient(circle, rgba(0, 123, 255, 0.2), transparent); /* Subtle blue glow */
-  z-index: -1; /* Place behind the text */
-  border-radius: 10px; /* Smooth edges for the glow */
-  filter: blur(15px); /* Create a soft glowing effect */
+@media (max-width: 768px) {
+  .trusted-heading {
+    font-size: 1.25rem; /* Slightly smaller text size for tablets */
+    margin-bottom: 0.75rem; /* Reduce spacing below the heading for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-heading {
+    font-size: 1rem; /* Further reduce text size for very small screens */
+    margin-bottom: 0.5rem; /* Adjust spacing for smaller devices */
+  }
 }
