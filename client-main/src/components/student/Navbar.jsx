@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { assets } from '../../assets/assets';
 import { Link, useLocation } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
@@ -19,6 +19,21 @@ const Navbar = ({ jobsRef }) => {
   const handleCoursesClick = () => {
     navigate('/course-list');
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden'); // Hide the mobile menu on scroll
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Cleanup event listener
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
@@ -64,7 +79,11 @@ const Navbar = ({ jobsRef }) => {
           >
             Live Jobs
           </button>
-          <Link to="/about" className="hover:text-blue-600 transition">
+          <Link
+            to="/about"
+            className="hover:text-blue-600 transition"
+            onClick={scrollToTop}
+          >
             About Us
           </Link>
           <Link to="/contact" className="hover:text-blue-600 transition">
@@ -151,7 +170,11 @@ const Navbar = ({ jobsRef }) => {
           >
             Live Jobs
           </button>
-          <Link to="/about" className="hover:text-blue-600 transition">
+          <Link
+            to="/about"
+            className="hover:text-blue-600 transition"
+            onClick={scrollToTop}
+          >
             About Us
           </Link>
           <Link to="/contact" className="hover:text-blue-600 transition">

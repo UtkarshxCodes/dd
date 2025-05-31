@@ -59,6 +59,13 @@ import counts from './counts.png';
 import carousal1 from './carousal1.png';
 import carousal2 from './carousal2.png';
 import carousal3 from './carousal3.png';
+import about1 from './about1.png';
+import about2 from './about2.png';
+import about3 from './about3.png';
+import about4 from './about4.png';
+import about5 from './about5.png';
+import about6 from './about6.png';
+
 export const assets = {
     logo,
     search_icon,
@@ -121,6 +128,12 @@ export const assets = {
     carousal1,
     carousal2,
     carousal3,
+    about1,
+    about2,
+    about3,
+    about4,
+    about5,
+    about6,
 }
 
 export const dummyTestimonial = [

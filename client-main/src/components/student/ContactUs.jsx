@@ -1,4 +1,5 @@
 import React from "react";
+import { assets } from "../../assets/assets";
 
 const ContactUs = () => (
   <div className="first-class">
@@ -74,6 +75,19 @@ const ContactUs = () => (
       .first-class button:hover {
         background: #1d4ed8;
       }
+      .first-class .images-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5em;
+      }
+      .first-class .images-container img {
+        width: 100%;
+        max-width: 240px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        object-fit: cover;
+      }
       .first-class .address, .first-class .contact-info {
         background: #e0e7ef;
         padding: 1.1em 1em;
@@ -95,6 +109,7 @@ const ContactUs = () => (
       @media (max-width: 600px) {
         .first-class .container { padding: 18px 6px; }
         .first-class h1 { font-size: 1.5rem; }
+        .first-class .images-container img { max-width: 100%; }
       }
     `}</style>
     <div className="container">
@@ -134,6 +149,11 @@ const ContactUs = () => (
           Send Message
         </a>
       </form>
+      {/* Images Section */}
+      <div className="images-container">
+
+        <img src={assets.about3} alt="About V-EDU 3" />
+      </div>
       <div className="address">
         <strong>Address:</strong><br />
         1908 Thomes Ave STE 12363,<br />

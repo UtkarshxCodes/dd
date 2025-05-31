@@ -1,0 +1,109 @@
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin-top: 100px; /* Prevent navbar overlap */
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.dynamic-image {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.map-image {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reach-us {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.reach-us h2 {
+  font-size: 1.8rem;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+.what-we-do h2,
+.vision-mission h2,
+.contact-info h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+.what-we-do ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.what-we-do li {
+  margin-bottom: 1rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benefit {
+  background-color: #e0f2fe;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.vision-mission,
+.contact-info {
+  margin-top: 2rem;
+}
+
+.vision-mission p,
+.contact-info p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.contact-info a {
+  color: #1e40af;
+  text-decoration: underline;
+}

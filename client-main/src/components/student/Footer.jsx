@@ -4,10 +4,14 @@ import { assets } from '../../assets/assets';
 
 const Footer = () => {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [showReturnPolicy, setShowReturnPolicy] = useState(false);
   const navigate = useNavigate();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const navigateAndScrollToTop = (path) => {
+    navigate(path);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100); // Ensure navigation completes before scrolling
   };
 
   return (
@@ -32,7 +36,7 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-white/80 hover:text-white transition"
-                    onClick={scrollToTop}
+                    onClick={() => navigateAndScrollToTop('/')}
                   >
                     Home
                   </button>
@@ -40,7 +44,7 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-white/80 hover:text-white transition"
-                    onClick={() => navigate('/course-list')}
+                    onClick={() => navigateAndScrollToTop('/course-list')}
                   >
                     Courses
                   </button>
@@ -48,7 +52,7 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-white/80 hover:text-white transition"
-                    onClick={() => navigate('/jobs')}
+                    onClick={() => navigateAndScrollToTop('/jobs')}
                   >
                     Live Jobs
                   </button>
@@ -56,7 +60,7 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-white/80 hover:text-white transition"
-                    onClick={() => navigate('/about')}
+                    onClick={() => navigateAndScrollToTop('/about')}
                   >
                     About Us
                   </button>
@@ -64,7 +68,7 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-white/80 hover:text-white transition"
-                    onClick={() => navigate('/contact')}
+                    onClick={() => navigateAndScrollToTop('/contact')}
                   >
                     Contact Page
                   </button>
@@ -74,7 +78,15 @@ const Footer = () => {
                     className="text-white/80 hover:text-white transition"
                     onClick={() => setShowPrivacyPolicy(true)}
                   >
-                    Privacy policy
+                    Privacy Policy
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="text-white/80 hover:text-white transition"
+                    onClick={() => setShowReturnPolicy(true)}
+                  >
+                    Return Policy
                   </button>
                 </li>
               </ul>
@@ -95,24 +107,6 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Newsletter Subscription */}
-            <div className="hidden md:flex flex-col items-start w-full">
-              <h2 className="font-medium text-white mb-5">Subscribe to our newsletter</h2>
-              <p className="text-sm text-white/80">
-                Stay updated with the latest news, articles, and resources delivered to your inbox weekly.
-              </p>
-              <div className="flex items-center gap-2 pt-4">
-                <input
-                  className="border border-gray-500/30 bg-gray-800 text-gray-500 placeholder-gray-500 outline-none w-64 h-9 rounded px-2 text-sm"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-                <button className="bg-blue-600 w-24 h-9 text-white rounded hover:bg-blue-700 transition">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-
           </div>
           <p className="py-4 text-center text-xs md:text-sm text-white/60">
             Copyright 2025 © V-EDU All Rights Reserved.
@@ -125,20 +119,48 @@ const Footer = () => {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full mx-4 p-6 overflow-y-auto max-h-[90vh]">
             <h2 className="text-2xl font-bold mb-4">Privacy Policy</h2>
-            <p className="text-sm text-gray-700 mb-4">Effective Date: May 27, 2025</p>
+            <p className="text-sm text-gray-700 mb-4">Effective  2025</p>
             <p className="text-sm text-gray-700 mb-4">V-EDU.us LLC</p>
             <p className="text-sm text-gray-700 mb-4">
               At V-EDU.us LLC (“V-EDU”, “we”, “our”, or “us”), we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you visit our website at https://v-edu.us and interact with our products and services.
             </p>
-            <p className="text-sm text-gray-700 mb-4">
-              We value the trust you place in us and strive to be transparent about our data practices. By using our site and services, you agree to the terms of this Privacy Policy.
-            </p>
-            <p className="text-sm text-gray-700 mb-4">
-              If you have any questions or concerns regarding this policy or your data, please don’t hesitate to contact us at privacy@v-edu.us.
-            </p>
             <button
               className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition mt-4"
               onClick={() => setShowPrivacyPolicy(false)}
+            >
+              Back / Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Return Policy Modal */}
+      {showReturnPolicy && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full mx-4 p-6 overflow-y-auto max-h-[90vh]">
+            <h2 className="text-2xl font-bold mb-4">Return & Cancellation Policy</h2>
+            <p className="text-sm text-gray-700 mb-4">Effective  2025</p>
+            <p className="text-sm text-gray-700 mb-4">
+              At V-EDU.us LLC, we are committed to ensuring a smooth and trustworthy experience for our learners. We understand that plans may change, and we offer a straightforward cancellation and refund process for your peace of mind.
+            </p>
+            <p className="text-sm text-gray-700 mb-4">
+              <strong>Full Refund on Course Registration:</strong> If you decide not to proceed with your course after registration, you are eligible for a 100% refund of the $199 registration amount, no questions asked.
+            </p>
+            <p className="text-sm text-gray-700 mb-4">
+              <strong>How to Cancel and Request a Refund:</strong> Please email us at <a href="mailto:support@v-edu.us" className="text-blue-600 hover:underline">support@v-edu.us</a> with your full name, registered email address, and payment confirmation or reference number. Refunds will be processed to your original payment method within 5–7 business days after confirmation.
+            </p>
+            <p className="text-sm text-gray-700 mb-4">
+              <strong>Important Notes:</strong> Refund requests must be submitted before the course begins or before any course material is accessed. If course access has already been granted or live sessions attended, refund eligibility may be reviewed on a case-by-case basis. Any third-party processing fees (if applicable) may be deducted from the refunded amount.
+            </p>
+            <p className="text-sm text-gray-700 mb-4">
+              <strong>Contact Us:</strong><br />
+              📧 Email: <a href="mailto:support@v-edu.us" className="text-blue-600 hover:underline">support@v-edu.us</a><br />
+              📞 Phone: <a href="tel:+18883444990" className="text-blue-600 hover:underline">+1 (888) 344-4990</a><br />
+              🏢 Address: 1908 Thomes Ave STE 12363, Cheyenne, WY 82001
+            </p>
+            <button
+              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition mt-4"
+              onClick={() => setShowReturnPolicy(false)}
             >
               Back / Cancel
             </button>

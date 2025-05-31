@@ -161,3 +161,14 @@ html, body, #root {
   margin: 0;
   padding: 0;
 }
+
+/* Ensure content is not hidden under the navbar */
+.page-content {
+  margin-top: 80px; /* Adjust based on the height of the navbar */
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    margin-top: 70px; /* Adjust for smaller screens */
+  }
+}
