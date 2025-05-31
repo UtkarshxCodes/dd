@@ -15,7 +15,8 @@ import './JobsList.css';
 import Carousel from '../../components/student/carousal';
 import CountsSection from '../../components/student/CountsSection';
 import Content from '../../components/student/content';
-
+import Quiz from '../../components/student/quiz'; 
+import './home.css';
 const Home = () => {
   const jobsRef = useRef(null);
   const fabRef = useRef(null);
@@ -32,6 +33,7 @@ const Home = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [discountAmount, setDiscountAmount] = useState(0);
   const [couponError, setCouponError] = useState("");
+  const [fabToggle, setFabToggle] = useState(true); // State to toggle between icon and text
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -53,6 +55,14 @@ const Home = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFabToggle((prev) => !prev); // Toggle the state every 5 seconds
+    }, 5000);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
   const fabStyle = {
@@ -154,6 +164,8 @@ const Home = () => {
             <div ref={jobsRef}>
               <JobPostingSection />
             </div>
+            {/* Add Quiz Section */}
+            <Quiz />
             <CoursesSection
               onEnroll={(course) => {
                 setSelectedCourse(course);
@@ -202,10 +214,13 @@ const Home = () => {
           onClick={() => setShowRegistration(true)}
           aria-label="Register"
         >
-          <span className="fab-icon">
-            <i className="fas fa-clipboard-list"></i>
-          </span>
-          <span className="fab-text">Register Now</span>
+          {fabToggle ? (
+            <span className="fab-icon">
+              <i className="fas fa-clipboard-list"></i>
+            </span>
+          ) : (
+            <span className="fab-text">Register Now</span>
+          )}
         </button>
       </menu>
 

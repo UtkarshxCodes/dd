@@ -65,6 +65,7 @@ import about3 from './about3.png';
 import about4 from './about4.png';
 import about5 from './about5.png';
 import about6 from './about6.png';
+import bgquiz from './bgquiz.png'; 
 
 export const assets = {
     logo,
@@ -134,6 +135,7 @@ export const assets = {
     about4,
     about5,
     about6,
+    bgquiz, // Add bgquiz.png
 }
 
 export const dummyTestimonial = [

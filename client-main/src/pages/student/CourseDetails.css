@@ -1,6 +1,9 @@
 /* General Styling */
 .course-details {
   padding: 1rem; /* Default padding for mobile screens */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  max-width: 100%; /* Prevent content from exceeding the viewport width */
+  overflow-x: hidden; /* Stop horizontal scrolling */
 }
 
 .course-details h1,
@@ -39,11 +42,11 @@
 /* Certificate Section */
 .certification {
   margin-top: 2rem;
-  text-align: center; /* Center content for mobile screens */
+  text-align: center; /* Center content for all screen sizes */
 }
 
 .certification h2 {
-  font-size: 1.5rem; /* Smaller font size for mobile screens */
+  font-size: 1.5rem; /* Default font size */
 }
 
 .certification p {
@@ -52,13 +55,13 @@
 
 .certification-images {
   display: flex;
-  flex-wrap: wrap; /* Stack images vertically for mobile screens */
-  justify-content: center; /* Center images for mobile screens */
+  flex-wrap: wrap; /* Allow images to stack vertically */
+  justify-content: center; /* Center images */
   gap: 1rem; /* Add spacing between images */
 }
 
 .certification-images img {
-  max-width: 100%; /* Prevent images from leaking */
+  max-width: 100%; /* Ensure images fit within the viewport */
   height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Add rounded corners for a professional look */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
@@ -106,18 +109,85 @@
   font-size: 0.875rem; /* Smaller font size for mobile screens */
 }
 
+/* Course Content Section */
+.course-content {
+  padding-top: 1rem;
+}
+
+.course-content .chapter {
+  border: 1px solid #d1d5db; /* Light gray border */
+  background-color: #ffffff; /* White background */
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.course-content .chapter-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.course-content .chapter-header img {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.course-content .chapter-header p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.course-content .chapter-header .lecture-info {
+  font-size: 0.875rem;
+}
+
+.course-content .chapter-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.course-content .chapter-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.course-content .chapter-body li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.course-content .chapter-body li img {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.25rem;
+}
+
+.course-content .chapter-body li p {
+  font-size: 0.875rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .course-details {
     padding: 0.5rem; /* Reduce padding for tablets */
+    max-width: 100%; /* Prevent content from exceeding the viewport width */
+    overflow-x: hidden; /* Stop horizontal scrolling */
   }
 
   .course-title {
     font-size: 1.25rem; /* Adjust font size for tablets */
+    text-align: center; /* Center the title */
   }
 
   .course-description {
     font-size: 0.875rem; /* Adjust font size for tablets */
+    line-height: 1.5; /* Improve readability */
   }
 
   .course-stats div {
@@ -126,36 +196,49 @@
 
   .certification h2 {
     font-size: 1.25rem; /* Adjust font size for tablets */
+    text-align: center; /* Center the heading */
+  }
+
+  .certification-images {
+    display: flex;
+    flex-wrap: wrap; /* Stack images vertically for smaller screens */
+    justify-content: center; /* Center images */
+    gap: 1rem; /* Add spacing between images */
   }
 
   .certification-images img {
     max-width: 90%; /* Adjust image width for tablets */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .numbers-section h2 {
-    font-size: 1.25rem; /* Adjust font size for tablets */
+  .course-content .chapter-header p {
+    font-size: 0.875rem; /* Smaller font size for tablets */
   }
 
-  .career-support h2 {
-    font-size: 1.25rem; /* Adjust font size for tablets */
+  .course-content .chapter-header .lecture-info {
+    font-size: 0.75rem; /* Smaller font size for tablets */
   }
 
-  .career-paths h2 {
-    font-size: 1.25rem; /* Adjust font size for tablets */
+  .course-content .chapter-body li p {
+    font-size: 0.75rem; /* Smaller font size for tablets */
   }
 }
 
 @media (max-width: 480px) {
   .course-details {
     padding: 0.5rem; /* Reduce padding for mobile screens */
+    max-width: 100%; /* Prevent content from exceeding the viewport width */
+    overflow-x: hidden; /* Stop horizontal scrolling */
   }
 
   .course-title {
     font-size: 1rem; /* Adjust font size for mobile screens */
+    text-align: center; /* Center the title */
   }
 
   .course-description {
     font-size: 0.75rem; /* Adjust font size for mobile screens */
+    line-height: 1.5; /* Improve readability */
   }
 
   .course-stats div {
@@ -164,21 +247,30 @@
 
   .certification h2 {
     font-size: 1rem; /* Adjust font size for mobile screens */
+    text-align: center; /* Center the heading */
+  }
+
+  .certification-images {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images */
+    gap: 1rem; /* Add spacing between images */
   }
 
   .certification-images img {
     max-width: 100%; /* Ensure images fit within the viewport */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .numbers-section h2 {
-    font-size: 1rem; /* Adjust font size for mobile screens */
+  .course-content .chapter-header p {
+    font-size: 0.75rem; /* Smaller font size for mobile screens */
   }
 
-  .career-support h2 {
-    font-size: 1rem; /* Adjust font size for mobile screens */
+  .course-content .chapter-header .lecture-info {
+    font-size: 0.625rem; /* Smaller font size for mobile screens */
   }
 
-  .career-paths h2 {
-    font-size: 1rem; /* Adjust font size for mobile screens */
+  .course-content .chapter-body li p {
+    font-size: 0.625rem; /* Smaller font size for mobile screens */
   }
 }
