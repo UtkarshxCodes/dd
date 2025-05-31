@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
-import "./AboutUs.css";
+import "./Aboutus.css";
 
 const AboutUs = () => {
   const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
