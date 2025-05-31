@@ -20,6 +20,7 @@ import './home.css';
 const Home = () => {
   const jobsRef = useRef(null);
   const fabRef = useRef(null);
+  const quizRef = useRef(null);
 
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const [showRegistration, setShowRegistration] = useState(false);
@@ -148,6 +149,20 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScrollToQuiz = () => {
+      if (quizRef.current) {
+        quizRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('scrollToQuizSection', handleScrollToQuiz);
+
+    return () => {
+      window.removeEventListener('scrollToQuizSection', handleScrollToQuiz);
+    };
+  }, []);
+
   return (
     <>
       {/* Universal Container */}
@@ -165,7 +180,9 @@ const Home = () => {
               <JobPostingSection />
             </div>
             {/* Add Quiz Section */}
-            <Quiz />
+            <div ref={quizRef}>
+              <Quiz />
+            </div>
             <CoursesSection
               onEnroll={(course) => {
                 setSelectedCourse(course);

@@ -8,18 +8,27 @@ const CallToAction = () => {
   return (
     <div className="flex flex-col items-center gap-6 pt-10 pb-24 px-8 md:px-0 bg-gradient-to-b from-blue-100 via-blue-50 to-white">
       {/* Main Heading */}
-      <h1 className="md:text-5xl text-2xl text-blue-800 font-extrabold">
-        Learning has never been so easy before
+      <h1 className="md:text-5xl text-2xl text-blue-800 font-extrabold text-center">
+        🚀 Learning Made Easy, Practical & Powerful
       </h1>
 
       {/* Subheading */}
-      <h2 className="md:text-4xl text-xl text-gray-800 font-semibold">
-        Learn anything, anytime, anywhere
+      <h2 className="md:text-4xl text-xl text-gray-800 font-semibold text-center">
+        Master Tech Skills for a Better Career—Anytime, Anywhere
       </h2>
 
-      {/* Description */}
-      <p className="text-gray-500 sm:text-sm text-center max-w-2xl">
-        Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.
+      {/* Updated Description */}
+      <p className="text-gray-500 text-center max-w-2xl md:text-lg text-sm leading-relaxed">
+        Join thousands of learners transforming their futures with job-ready courses in Data Science, AI, Web Development, and more. No fluff. Just real-world skills that employers actually want.
+        <br /><br />
+        👉 <span className="font-bold">Flexible schedules. Expert mentors. Lifetime access.</span>
+        <br /><br />
+        ✅ <span className="font-bold">Learn by doing — Project-based lessons</span><br />
+        ✅ <span className="font-bold">Job-focused training — Built for today’s market</span><br />
+        ✅ <span className="font-bold">On your terms — Learn at your own pace, from anywhere</span>
+        <br /><br />
+        🎯 <span className="font-bold">Ready to future-proof your career?</span><br />
+        Tap into top-paying tech careers—even with no prior experience.
       </p>
 
       {/* Buttons */}
@@ -31,8 +40,12 @@ const CallToAction = () => {
           Get started
         </button>
         <button className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition">
-          Learn more
-          <img src={assets.arrow_icon} alt="arrow_icon" />
+          <img
+            src={assets.arrow_icon}
+            alt="arrow_icon"
+            className="transform rotate-180" // Mirror the arrow icon
+          />
+          Your tech journey begins here!
         </button>
       </div>
     </div>

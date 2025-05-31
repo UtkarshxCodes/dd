@@ -143,6 +143,21 @@ const Navbar = ({ jobsRef }) => {
         id="mobile-menu"
         className="hidden absolute top-full right-4 w-64 bg-white bg-opacity-90 shadow-lg border border-gray-300 z-50 max-h-[300px] overflow-y-auto rounded-lg"
       >
+        {/* Quiz Button */}
+        <button
+          className="absolute top-2 right-2 bg-blue-600 text-white px-4 py-2 rounded-full font-bold shadow-lg hover:bg-blue-700 transition"
+          onClick={() => {
+            navigate('/'); // Navigate to the home page
+            setTimeout(() => {
+              window.dispatchEvent(new CustomEvent('scrollToQuizSection')); // Trigger scroll to quiz section
+            }, 100);
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden'); // Close the menu
+          }}
+        >
+          Take Quiz
+        </button>
+
         <div className="flex flex-col items-start gap-4 p-4">
           <Link
             to="/"
