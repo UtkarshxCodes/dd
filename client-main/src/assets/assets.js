@@ -75,7 +75,7 @@ import daniel from './daniel.png';
 import carlos from './carlos.png';
 import priya from './priya.png';
 import aisha from './aisha.png';
-import michael from './michael.png';
+import michael from './Michael.png'; // Comment this if file is missing
 
 export const assets = {
     logo,
@@ -155,7 +155,7 @@ export const assets = {
     carlos,
     priya,
     aisha,
-    michael,
+    michael, // And this line too if missing
 }
 
 export const dummyTestimonial = [
