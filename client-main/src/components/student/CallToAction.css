@@ -1,0 +1,50 @@
+.cta-button {
+  position: relative;
+  padding: 12px 40px;
+  border-radius: 8px;
+  background-color: #2563eb; /* Blue color */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5); /* Glow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floating 3s infinite ease-in-out; /* Floating effect */
+}
+
+.cta-button:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.7); /* Stronger glow */
+}
+
+.cta-button:active {
+  transform: translateY(0); /* Reset position on click */
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, rgba(37, 99, 235, 0) 80%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta-button:hover::after {
+  opacity: 1; /* Glow effect on hover */
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

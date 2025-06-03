@@ -66,6 +66,16 @@ import about4 from './about4.png';
 import about5 from './about5.png';
 import about6 from './about6.png';
 import bgquiz from './bgquiz.png'; 
+import ravi from './ravi.png';
+import sophia from './sophia.png';
+import meera from './meera.png';
+import jamal from './jamal.png';
+import elena from './elena.png';
+import daniel from './daniel.png';
+import carlos from './carlos.png';
+import priya from './priya.png';
+import aisha from './aisha.png';
+import michael from './michael.png';
 
 export const assets = {
     logo,
@@ -136,6 +146,16 @@ export const assets = {
     about5,
     about6,
     bgquiz, // Add bgquiz.png
+    ravi,
+    sophia,
+    meera,
+    jamal,
+    elena,
+    daniel,
+    carlos,
+    priya,
+    aisha,
+    michael,
 }
 
 export const dummyTestimonial = [

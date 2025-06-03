@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { assets } from '../../assets/assets';
+import './CallToAction.css'; // Import your CSS file for styling
 
 const CallToAction = () => {
   const navigate = useNavigate(); // Initialize useNavigate
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setMousePosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
+  };
 
   return (
     <div className="flex flex-col items-center gap-6 pt-10 pb-24 px-8 md:px-0 bg-gradient-to-b from-blue-100 via-blue-50 to-white">
@@ -34,17 +46,14 @@ const CallToAction = () => {
       {/* Buttons */}
       <div className="flex items-center font-medium gap-6 mt-4">
         <button
-          className="px-10 py-3 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+          className="cta-button"
           onClick={() => navigate('/course-list')} // Navigate to the courses page
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`,
+          }}
         >
-          Get started
-        </button>
-        <button className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition">
-          <img
-            src={assets.arrow_icon}
-            alt="arrow_icon"
-            className="transform rotate-180" // Mirror the arrow icon
-          />
           Your tech journey begins here!
         </button>
       </div>
