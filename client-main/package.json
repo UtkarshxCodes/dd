@@ -17,6 +17,7 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "gsap": "^3.13.0",
     "humanize-duration": "^3.32.1",
     "lucide-react": "^0.509.0",
     "paypal-rest-sdk": "^1.8.1",
@@ -31,8 +32,10 @@
     "react-toastify": "^10.0.6",
     "react-youtube": "^10.1.0",
     "scrollreveal": "^4.0.9",
+    "shery": "^1.0.8",
     "sheryjs": "^1.0.0-beta.0.1.8",
     "stripe": "^18.1.1",
+    "three": "^0.177.0",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {

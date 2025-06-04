@@ -17,6 +17,8 @@ import CountsSection from '../../components/student/CountsSection';
 import Content from '../../components/student/content';
 import Quiz from '../../components/student/quiz'; 
 import './home.css';
+import SheryIframe from '../../components/student/SheryIframe';
+
 const Home = () => {
   const jobsRef = useRef(null);
   const fabRef = useRef(null);
@@ -172,6 +174,7 @@ const Home = () => {
             <Hero />
             <Carousel />
             <CountsSection/>
+            <SheryIframe />
             <Content />
             <ErrorBoundary>
               <Companies />
