@@ -7,6 +7,9 @@ const CourseCard = ({ course }) => {
     const { currency } = useContext(AppContext);
     const navigate = useNavigate(); // Initialize useNavigate
 
+    // Calculate the discount percentage (optional)
+    const discountPercentage = 60;
+
     return (
         <div className="border border-gray-500/30 pb-6 overflow-hidden rounded-lg">
             <Link onClick={() => scrollTo(0, 0)} to={'/course/' + course._id} className="block">
@@ -37,7 +40,8 @@ const CourseCard = ({ course }) => {
                     <p className="text-base font-semibold text-gray-800">
                         {currency}{(course.coursePrice - course.discount * course.coursePrice / 100).toFixed(2)}
                     </p>
-                    <p className="md:text-lg text-gray-500">0% off</p>
+                    {/* Change 0% off to 60% off */}
+                    <p className="md:text-lg text-gray-500">{discountPercentage}% off</p>
                     <div className="flex items-center gap-1">
                         <img src={assets.time_clock_icon} alt="clock icon" />
                         <p>62 minutes</p>
