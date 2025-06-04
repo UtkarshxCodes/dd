@@ -14,7 +14,7 @@ const SheryIframe = () => {
       }}
     >
       <iframe
-        src="/src/public/shery.html"
+        src="/shery.html"
         title="Shery Visual Section"
         style={{
           position: "absolute", // Ensure it fills the parent container
