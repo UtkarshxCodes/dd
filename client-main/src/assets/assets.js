@@ -76,6 +76,9 @@ import carlos from './carlos.png';
 import priya from './priya.png';
 import aisha from './aisha.png';
 import michael from './Michael.png'; // Comment this if file is missing
+import Coursevid1 from './Coursevid1.mp4';
+import Coursevid2 from './Coursevid2.mp4';
+import Coursevid3 from './Coursevid3.mp4';
 
 export const assets = {
     logo,
@@ -156,6 +159,9 @@ export const assets = {
     priya,
     aisha,
     michael, // And this line too if missing
+    Coursevid1,
+    Coursevid2,
+    Coursevid3,
 }
 
 export const dummyTestimonial = [

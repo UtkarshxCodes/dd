@@ -11,7 +11,7 @@ const jobData = [
     type: "Full Time",
     salary: "$160,000/Year",
     hourly: "$76.92/hr",
-    link: "/jobs/nvidia-ai-research-scientist"
+    link: "https://www.nvidia.com" // NVIDIA's official website
   },
   {
     company: "IBM",
@@ -22,7 +22,7 @@ const jobData = [
     type: "Full Time",
     salary: "$142,000/Year",
     hourly: "$68.27/hr",
-    link: "/jobs/ibm-cloud-solutions-architect"
+    link: "https://www.ibm.com" // IBM's official website
   },
   {
     company: "CrowdStrike",
@@ -33,7 +33,7 @@ const jobData = [
     type: "Full Time",
     salary: "$120,000/Year",
     hourly: "$57.69/hr",
-    link: "/jobs/crowdstrike-cybersecurity-analyst"
+    link: "https://www.crowdstrike.com" // CrowdStrike's official website
   },
   {
     company: "Meta",
@@ -44,7 +44,7 @@ const jobData = [
     type: "Full Time",
     salary: "$155,000/Year",
     hourly: "$74.52/hr",
-    link: "/jobs/meta-data-scientist"
+    link: "https://www.meta.com" // Meta's official website
   },
   {
     company: "Oracle",
@@ -55,7 +55,7 @@ const jobData = [
     type: "Full Time",
     salary: "$138,000/Year",
     hourly: "$66.35/hr",
-    link: "/jobs/oracle-cloud-devops-engineer"
+    link: "https://www.oracle.com" // Oracle's official website
   },
   {
     company: "Cisco",
@@ -66,7 +66,7 @@ const jobData = [
     type: "Full Time",
     salary: "$110,000/Year",
     hourly: "$52.88/hr",
-    link: "/jobs/cisco-network-security-engineer"
+    link: "https://www.cisco.com" // Cisco's official website
   },
   {
     company: "Google DeepMind",
@@ -77,7 +77,7 @@ const jobData = [
     type: "Full Time",
     salary: "$165,000/Year",
     hourly: "$79.33/hr",
-    link: "/jobs/google-deepmind-ai-research-engineer"
+    link: "https://www.deepmind.com" // Google DeepMind's official website
   },
   {
     company: "Amazon Web Services (AWS)",
@@ -88,7 +88,7 @@ const jobData = [
     type: "Full Time",
     salary: "$148,000/Year",
     hourly: "$71.15/hr",
-    link: "/jobs/aws-cloud-infrastructure-engineer"
+    link: "https://aws.amazon.com" // AWS's official website
   },
   {
     company: "Netflix",
@@ -99,7 +99,7 @@ const jobData = [
     type: "Full Time",
     salary: "$158,000/Year",
     hourly: "$75.96/hr",
-    link: "/jobs/netflix-senior-data-scientist"
+    link: "https://www.netflix.com" // Netflix's official website
   },
   {
     company: "Palo Alto Networks",
@@ -110,7 +110,7 @@ const jobData = [
     type: "Full Time",
     salary: "$125,000/Year",
     hourly: "$60.10/hr",
-    link: "/jobs/palo-alto-networks-cybersecurity-threat-analyst"
+    link: "https://www.paloaltonetworks.com" // Palo Alto Networks' official website
   },
   {
     company: "Microsoft Azure",
@@ -121,7 +121,7 @@ const jobData = [
     type: "Full Time",
     salary: "$152,000/Year",
     hourly: "$73.08/hr",
-    link: "/jobs/microsoft-azure-cloud-security-architect"
+    link: "https://azure.microsoft.com" // Microsoft Azure's official website
   },
   {
     company: "Tesla AI",
@@ -132,7 +132,7 @@ const jobData = [
     type: "Full Time",
     salary: "$162,000/Year",
     hourly: "$77.88/hr",
-    link: "/jobs/tesla-ai-machine-learning-engineer"
+    link: "https://www.tesla.com" // Tesla's official website
   },
   {
     company: "FireEye (Trellix)",
@@ -143,38 +143,40 @@ const jobData = [
     type: "Full Time",
     salary: "$130,000/Year",
     hourly: "$62.50/hr",
-    link: "/jobs/fireeye-incident-response-specialist"
+    link: "https://www.fireeye.com" // FireEye's official website
   }
 ];
 
-const JobsList = ({ setShowRegistration }) => (
-  <section className="jobs-list-section">
-    <div className="jobs-list-container">
-      <h2 className="jobs-list-title">All Job Openings</h2>
-      <div className="jobs-list-vertical">
-        {jobData.map((job, index) => (
-          <div key={index} className="jobs-list-card">
-            <div className="jobs-list-card-main">
-              <h3>{job.role} <span className="company">@ {job.company}</span></h3>
-              <p className="location">{job.location} — {job.type}</p>
-              <p className="desc">{job.description}</p>
-              <div className="jobs-list-meta">
-                <span>{job.positions}</span>
-                <span className="salary">💰 {job.salary}</span>
-                <span className="hourly">⏱ {job.hourly}</span>
+const JobsList = () => {
+  return (
+    <section className="jobs-list-section">
+      <div className="jobs-list-container">
+        <h2 className="jobs-list-title">All Job Openings</h2>
+        <div className="jobs-list-vertical">
+          {jobData.map((job, index) => (
+            <div key={index} className="jobs-list-card">
+              <div className="jobs-list-card-main">
+                <h3>{job.role} <span className="company">@ {job.company}</span></h3>
+                <p className="location">{job.location} — {job.type}</p>
+                <p className="desc">{job.description}</p>
+                <div className="jobs-list-meta">
+                  <span>{job.positions}</span>
+                  <span className="salary">💰 {job.salary}</span>
+                  <span className="hourly">⏱ {job.hourly}</span>
+                </div>
               </div>
+              <button
+                className="apply-btn"
+                onClick={() => window.open(job.link, '_blank')} // Open the company's website in a new tab
+              >
+                Apply Now
+              </button>
             </div>
-            <button
-              className="apply-btn"
-              onClick={() => setShowRegistration(true)}
-            >
-              Apply Now
-            </button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default JobsList;
