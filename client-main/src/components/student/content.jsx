@@ -34,20 +34,28 @@ export default function Content() {
     },
   ];
 
+  // Split advantages into two groups for a 2x3 layout
+  const gridItems = [
+    advantages.slice(0, 3), // First row
+    advantages.slice(3, 6), // Second row
+  ];
+
   return (
     <div className="w-screen py-16 bg-gray-100">
       <h1 className="text-center text-4xl font-bold mb-12">⚡ The V-EDU Advantage</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 md:px-16">
-        {advantages.map((advantage, index) => (
-          <div
-            key={index}
-            className="p-6 bg-white shadow-lg rounded-lg transform transition-transform hover:-translate-y-2 hover:shadow-xl"
-          >
-            <h2 className="text-2xl font-bold mb-4">{advantage.title}</h2>
-            <p className="text-gray-700">{advantage.description}</p>
-          </div>
-        ))}
-      </div>
+      {gridItems.map((row, rowIndex) => (
+        <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 md:px-16 mb-12">
+          {row.map((advantage, index) => (
+            <div
+              key={index}
+              className="p-6 bg-white shadow-lg rounded-lg transform transition-transform hover:-translate-y-2 hover:shadow-xl"
+            >
+              <h2 className="text-2xl font-bold mb-4">{advantage.title}</h2>
+              <p className="text-gray-700">{advantage.description}</p>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
