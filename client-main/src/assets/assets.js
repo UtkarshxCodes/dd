@@ -79,6 +79,9 @@ import michael from './Michael.png'; // Comment this if file is missing
 import Coursevid1 from './Coursevid1.mp4';
 import Coursevid2 from './Coursevid2.mp4';
 import Coursevid3 from './Coursevid3.mp4';
+import Coursevid4 from './Coursevid4.mp4';
+import Coursevid5 from './Coursevid5.mp4';
+import Coursevid6 from './Coursevid6.mp4';
 
 export const assets = {
     logo,
@@ -162,6 +165,9 @@ export const assets = {
     Coursevid1,
     Coursevid2,
     Coursevid3,
+    Coursevid4, // Added Coursevid4
+    Coursevid5, // Added Coursevid5
+    Coursevid6, // Added Coursevid6
 }
 
 export const dummyTestimonial = [

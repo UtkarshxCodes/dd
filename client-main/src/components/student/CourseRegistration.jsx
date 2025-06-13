@@ -91,6 +91,9 @@ const CourseRegistration = ({ isOpen, setIsOpen }) => {
                 <option value="Cybersecurity">Cybersecurity</option>
                 <option value="Data Science">Data Science & AI</option>
                 <option value="DevOps">DevOps & Cloud</option>
+                <option value="Digital Marketing">Digital Marketing and Growth</option> {/* New course */}
+                <option value="Fullstack Development">Fullstack Software Development</option> {/* New course */}
+                <option value="UI UX Design">UI and UX Design</option> {/* New course */}
               </select>
               <button
                 type="submit"

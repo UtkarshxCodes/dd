@@ -27,6 +27,9 @@ const CoursesSection = ({ onEnroll }) => {
                     <CourseCard course={allCourses[0]} courseVideo={assets.Coursevid1} />
                     <CourseCard course={allCourses[1]} courseVideo={assets.Coursevid2} />
                     <CourseCard course={allCourses[2]} courseVideo={assets.Coursevid3} />
+                    <CourseCard course={allCourses[3]} courseVideo={assets.Coursevid4} /> {/* Digital Marketing */}
+                    <CourseCard course={allCourses[4]} courseVideo={assets.Coursevid5} /> {/* Fullstack Development */}
+                    <CourseCard course={allCourses[5]} courseVideo={assets.Coursevid6} /> {/* UI and UX */}
                 </div>
 
                 {/* Show All Courses Button */}
