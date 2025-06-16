@@ -11,7 +11,11 @@ const LMSLoginPage = () => {
   const handleLogin = () => {
     // Validate email and password
     if (email === 'StudentID@v-edu.us' && password === 'V-edu.us1') {
+      sessionStorage.setItem('authUser', 'default'); // Store authentication state
       navigate('/lms-dashboard'); // Redirect to LMSDashboard
+    } else if (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') {
+      sessionStorage.setItem('authUser', 'christiano'); // Store authentication state
+      navigate('/lms-dashboard?user=christiano'); // Redirect to personalized LMSDashboard
     } else {
       setError('Invalid email or password. Please try again.');
     }

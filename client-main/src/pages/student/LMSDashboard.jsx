@@ -1,13 +1,40 @@
-import React, { useState } from 'react';
-import { FaHome, FaBook, FaChartLine, FaTasks, FaVideo, FaComments, FaCertificate, FaCog, FaSignOutAlt, FaBell, FaUserCircle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { FaHome, FaBook, FaChartLine, FaTasks, FaVideo, FaComments, FaCertificate, FaSignOutAlt, FaBell, FaUserCircle } from 'react-icons/fa';
+import { useNavigate, useLocation } from 'react-router-dom';
+import MyEnrollments from '../../components/MyEnrollments';
+import ProgressAnalytics from '../../components/ProgressAnalytics';
+import LiveSessions from '../../components/LiveSessions';
+import AssignmentsTasks from '../../components/AssignmentsTasks';
+import AskMentor from '../../components/AskMentor';
 
 const LMSDashboard = () => {
-  const navigate = useNavigate(); // Navigation hook
-  const [activeSection, setActiveSection] = useState('Dashboard'); // State to track active section
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('Dashboard');
+  const [user, setUser] = useState('');
+  const [showNotificationPopup, setShowNotificationPopup] = useState(false);
+
+  useEffect(() => {
+    const authUser = sessionStorage.getItem('authUser');
+    if (!authUser) {
+      navigate('/lms-login');
+    } else {
+      const queryParams = new URLSearchParams(location.search);
+      const userParam = queryParams.get('user');
+      setUser(authUser === 'christiano' ? 'christiano' : userParam || 'default');
+    }
+  }, [location, navigate]);
 
   const handleLogout = () => {
-    navigate('/lms-login'); // Redirect to LMSLoginPage
+    sessionStorage.removeItem('authUser');
+    navigate('/lms-login');
+  };
+
+  const handleNotificationClick = () => {
+    setShowNotificationPopup(true);
+    setTimeout(() => {
+      setShowNotificationPopup(false);
+    }, 5000);
   };
 
   return (
@@ -17,6 +44,7 @@ const LMSDashboard = () => {
         <div className="p-6 text-center border-b border-blue-700">
           <h1 className="text-xl font-bold">V-EDU.us</h1>
           <p className="text-sm">Learning Management System</p>
+          {user === 'christiano' && <p className="text-sm mt-2">Welcome, Christiano!</p>}
         </div>
         <nav className="flex-1 p-4 overflow-y-auto">
           <ul className="space-y-4">
@@ -85,7 +113,7 @@ const LMSDashboard = () => {
             </li>
             <li
               className="flex items-center gap-3 hover:bg-blue-700 p-2 rounded-md cursor-pointer"
-              onClick={handleLogout} // Logout functionality
+              onClick={handleLogout}
             >
               <FaSignOutAlt />
               <span>Logout</span>
@@ -97,70 +125,106 @@ const LMSDashboard = () => {
       {/* Main Content */}
       <main className="flex-1 ml-64 p-6">
         {/* Header */}
-        <header className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md">
+        <header className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md relative">
           <div>
-            <h2 className="text-xl font-bold">Welcome back, Learner 👋</h2>
+            <h2 className="text-xl font-bold">Welcome back, {user === 'christiano' ? 'Christiano 👋' : 'Learner 👋'}</h2>
             <p className="text-sm text-gray-500">Your learning journey continues!</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative">
-              <FaBell size={20} className="text-gray-700 cursor-pointer" />
+              <FaBell
+                size={20}
+                className="text-gray-700 cursor-pointer"
+                onClick={handleNotificationClick}
+              />
               <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">3</span>
             </div>
             <FaUserCircle size={30} className="text-gray-700 cursor-pointer" />
           </div>
+
+          {/* Notification Popup */}
+          {showNotificationPopup && (
+            <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
+              <h4 className="text-sm font-bold mb-2">🔔 Notifications</h4>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li>Welcome to V-EDU LMS, Christiano! Your personalized learning journey begins here.</li>
+                <li>Stay tuned! One of our expert instructors will shortly assist you.</li>
+                <li>Don't forget to check out your Dashboard for assignments and progress analytics.</li>
+              </ul>
+            </div>
+          )}
         </header>
 
         {/* Dynamic Content */}
         <section className="mt-6">
-          {activeSection === 'Dashboard' && (
+          {activeSection === 'Dashboard' && user === 'christiano' && (
             <div>
               <h3 className="text-lg font-bold mb-4">Dashboard</h3>
-              {/* Current Content */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* My Enrollments */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h3 className="text-lg font-bold mb-4">My Enrollments</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 border rounded-lg">
-                      <h4 className="font-bold">Data Science & AI</h4>
-                      <p className="text-sm text-gray-500">Progress: 0%</p>
-                      <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+              <p>Welcome to your personalized dashboard, Christiano!</p>
+              <MyEnrollments />
+            </div>
+          )}
+          {activeSection === 'Dashboard' && user !== 'christiano' && (
+            <div>
+              <h3 className="text-lg font-bold mb-4">Dashboard</h3>
+              {/* Personalized content for Christiano */}
+              {user === 'christiano' ? (
+                <div>
+                  <p>Welcome to your personalized dashboard, Christiano!</p>
+                  {/* Add Christiano-specific content here */}
+                </div>
+              ) : (
+                <div>
+                  {/* Default content */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {/* My Enrollments */}
+                    <div className="bg-white p-4 rounded-lg shadow-md">
+                      <h3 className="text-lg font-bold mb-4">My Enrollments</h3>
+                      <div className="space-y-4">
+                        <div className="p-4 border rounded-lg">
+                          <h4 className="font-bold">Data Science & AI</h4>
+                          <p className="text-sm text-gray-500">Progress: 0%</p>
+                          <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+                        </div>
+                        <div className="p-4 border rounded-lg">
+                          <h4 className="font-bold">Cybersecurity & EthicalHacking</h4>
+                          <p className="text-sm text-gray-500">Progress: 0%</p>
+                          <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+                        </div>
+                        <div className="p-4 border rounded-lg">
+                          <h4 className="font-bold">DevOps & Cloud</h4>
+                          <p className="text-sm text-gray-500">Progress: 0%</p>
+                          <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="p-4 border rounded-lg">
-                      <h4 className="font-bold">Cybersecurity & EthicalHacking</h4>
-                      <p className="text-sm text-gray-500">Progress: 0%</p>
-                      <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+
+                    {/* Progress Analytics */}
+                    <div className="bg-white p-4 rounded-lg shadow-md">
+                      <h3 className="text-lg font-bold mb-4">Progress Analytics</h3>
+                      <p className="text-sm text-gray-500">Track your weekly study hours and module completion rates.</p>
+                      {/* Placeholder for Chart */}
+                      <div className="h-40 bg-gray-200 rounded-lg"></div>
                     </div>
-                    <div className="p-4 border rounded-lg">
-                      <h4 className="font-bold">DevOps & Cloud</h4>
-                      <p className="text-sm text-gray-500">Progress: 0%</p>
-                      <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2">Resume</button>
+
+                    {/* Upcoming Events */}
+                    <div className="bg-white p-4 rounded-lg shadow-md">
+                      <h3 className="text-lg font-bold mb-4">Upcoming Events</h3>
+                      <ul className="space-y-2">
+                        <li className="text-sm text-gray-500">🔔 Live session: Data Science (Tomorrow, 10 AM)</li>
+                        <li className="text-sm text-gray-500">📝 Assignment due: Cybersecurity (Next Monday)</li>
+                        <li className="text-sm text-gray-500">📢 Announcement: DevOps workshop (Next Friday)</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-
-                {/* Progress Analytics */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h3 className="text-lg font-bold mb-4">Progress Analytics</h3>
-                  <p className="text-sm text-gray-500">Track your weekly study hours and module completion rates.</p>
-                  {/* Placeholder for Chart */}
-                  <div className="h-40 bg-gray-200 rounded-lg"></div>
-                </div>
-
-                {/* Upcoming Events */}
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <h3 className="text-lg font-bold mb-4">Upcoming Events</h3>
-                  <ul className="space-y-2">
-                    <li className="text-sm text-gray-500">🔔 Live session: Data Science (Tomorrow, 10 AM)</li>
-                    <li className="text-sm text-gray-500">📝 Assignment due: Cybersecurity (Next Monday)</li>
-                    <li className="text-sm text-gray-500">📢 Announcement: DevOps workshop (Next Friday)</li>
-                  </ul>
-                </div>
-              </div>
+              )}
             </div>
           )}
-          {activeSection === 'My Enrollments' && (
+          {activeSection === 'My Enrollments' && user === 'christiano' && (
+            <MyEnrollments /> // Render the MyEnrollments component for Christiano
+          )}
+          {activeSection === 'My Enrollments' && user !== 'christiano' && (
             <div>
               <h3 className="text-lg font-bold mb-4">My Enrollments</h3>
               <p>Here are your enrolled courses:</p>
@@ -173,20 +237,17 @@ const LMSDashboard = () => {
           )}
           {activeSection === 'Progress Analytics' && (
             <div>
-              <h3 className="text-lg font-bold mb-4">Progress Analytics</h3>
-              <p>Track your weekly study hours and module completion rates.</p>
+              
             </div>
           )}
           {activeSection === 'Assignments / Tasks' && (
             <div>
-              <h3 className="text-lg font-bold mb-4">Assignments / Tasks</h3>
-              <p>View and submit your assignments here.</p>
+             
             </div>
           )}
           {activeSection === 'Live Sessions / Recordings' && (
             <div>
-              <h3 className="text-lg font-bold mb-4">Live Sessions / Recordings</h3>
-              <p>Join live sessions or access recordings here.</p>
+          
             </div>
           )}
           {activeSection === 'Ask Mentor (Doubt Forum)' && (
@@ -198,9 +259,13 @@ const LMSDashboard = () => {
           {activeSection === 'Certificates' && (
             <div>
               <h3 className="text-lg font-bold mb-4">Certificates</h3>
-              <p>Download your course completion certificates here.</p>
+              <p>Download your course completion certificates here when Unlocked .</p>
             </div>
           )}
+          {activeSection === 'Progress Analytics' && <ProgressAnalytics />}
+          {activeSection === 'Live Sessions / Recordings' && <LiveSessions />}
+          {activeSection === 'Assignments / Tasks' && <AssignmentsTasks />}
+          {activeSection === 'Ask Mentor (Doubt Forum)' && <AskMentor />}
         </section>
       </main>
     </div>
