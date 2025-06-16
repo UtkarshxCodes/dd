@@ -108,12 +108,23 @@ const Navbar = ({ jobsRef }) => {
               <UserButton />
             </>
           ) : (
-            <button
-              onClick={() => openSignIn()}
-              className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold"
-            >
-              Create Account
-            </button>
+            <>
+              {/* Create Account Button */}
+              <button
+                onClick={() => openSignIn()}
+                className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold md:bg-blue-600 md:text-white md:hover:bg-blue-700 bg-gray-200 text-black hover:bg-gray-300 transition"
+              >
+                Create Account
+              </button>
+
+              {/* LMS Button */}
+              <Link
+                to="/lms-login"
+                className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold md:bg-blue-600 md:text-white md:hover:bg-blue-700 bg-gray-200 text-black hover:bg-gray-300 transition"
+              >
+                LMS
+              </Link>
+            </>
           )}
         </div>
 
@@ -143,32 +154,23 @@ const Navbar = ({ jobsRef }) => {
         id="mobile-menu"
         className="hidden absolute top-full right-4 w-64 bg-white bg-opacity-90 shadow-lg border border-gray-300 z-50 max-h-[300px] overflow-y-auto rounded-lg"
       >
-        {/* Quiz Button */}
-        <button
-          className="absolute top-2 right-2 bg-blue-600 text-white px-4 py-2 rounded-full font-bold shadow-lg hover:bg-blue-700 transition"
-          onClick={() => {
-            navigate('/'); // Navigate to the home page
-            setTimeout(() => {
-              window.dispatchEvent(new CustomEvent('scrollToQuizSection')); // Trigger scroll to quiz section
-            }, 100);
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.add('hidden'); // Close the menu
-          }}
-        >
-          Take Quiz
-        </button>
-
         <div className="flex flex-col items-start gap-4 p-4">
           <Link
             to="/"
             className="hover:text-blue-600 transition"
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+            }}
           >
             Home
           </Link>
           <button
             type="button"
-            onClick={handleCoursesClick}
+            onClick={() => {
+              handleCoursesClick();
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+            }}
             className="hover:text-blue-600 transition"
           >
             Courses
@@ -180,6 +182,7 @@ const Navbar = ({ jobsRef }) => {
               setTimeout(() => {
                 window.dispatchEvent(new CustomEvent('scrollToJobsSection'));
               }, 100);
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
             }}
             className="hover:text-blue-600 transition"
           >
@@ -188,27 +191,68 @@ const Navbar = ({ jobsRef }) => {
           <Link
             to="/about"
             className="hover:text-blue-600 transition"
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+            }}
           >
             About Us
           </Link>
-          <Link to="/contact" className="hover:text-blue-600 transition">
+          <Link
+            to="/contact"
+            className="hover:text-blue-600 transition"
+            onClick={() => {
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+            }}
+          >
             Contact Page
+          </Link>
+          <Link
+            to="/quiz"
+            className="hover:text-blue-600 transition"
+            onClick={() => {
+              document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+            }}
+          >
+            Take Quiz
           </Link>
           {user ? (
             <>
-              <Link to="/my-enrollments" className="hover:text-blue-600 transition">
+              <Link
+                to="/my-enrollments"
+                className="hover:text-blue-600 transition"
+                onClick={() => {
+                  document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+                }}
+              >
                 My Enrollments
               </Link>
               <UserButton />
             </>
           ) : (
-            <button
-              onClick={() => openSignIn()}
-              className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold"
-            >
-              Create Account
-            </button>
+            <>
+              {/* Create Account Button */}
+              <button
+                onClick={() => {
+                  openSignIn();
+                  document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+                }}
+                className="bg-gray-200 text-black px-5 py-2 rounded-full font-bold hover:bg-gray-300 transition"
+              >
+                Create Account
+              </button>
+
+              {/* LMS Button */}
+              <Link
+                to="/lms-login"
+                className="bg-gray-200 text-black px-5 py-2 rounded-full font-bold hover:bg-gray-300 transition"
+                onClick={() => {
+                  document.getElementById('mobile-menu').classList.add('hidden'); // Close menu
+                }}
+              >
+                LMS
+              </Link>
+            </>
           )}
         </div>
       </div>

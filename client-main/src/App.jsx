@@ -19,6 +19,9 @@ import AboutUs from './components/student/Aboutus';
 import ContactUs from './components/student/ContactUs';
 import JobsList from './pages/student/JobsList';
 import CourseRegistration from './components/student/CourseRegistration';
+import LMSLoginPage from './pages/student/LMSLoginPage';
+import LMSDashboard from './pages/student/LMSDashboard';
+import QuizSection from './components/student/quiz';
 
 const App = () => {
   const [showRegistration, setShowRegistration] = useState(false);
@@ -68,6 +71,9 @@ const App = () => {
           <Route path='my-courses' element={<MyCourses />} />
           <Route path='student-enrolled' element={<StudentsEnrolled />} />
         </Route>
+        <Route path="/lms-login" element={<LMSLoginPage />} />
+        <Route path="/lms-dashboard" element={<LMSDashboard />} />
+        <Route path="/quiz" element={<QuizSection />} />
       </Routes>
       <CourseRegistration
         isOpen={showRegistration}
