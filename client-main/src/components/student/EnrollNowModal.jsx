@@ -26,9 +26,10 @@ const EnrollNowModal = ({ isOpen, onClose }) => {
         </stripe-buy-button>
 
         {/* "or" Text */}
-        <p className="text-black font-bold">or</p>
+        <p className="text-black font-bold"></p>
 
-        {/* PayPal Button */}
+        {/* PayPal Button - Commented Out */}
+        {/*
         <style>
           {`.pp-VEAG2FR87HNKE {
             text-align: center;
@@ -78,6 +79,7 @@ const EnrollNowModal = ({ isOpen, onClose }) => {
             />
           </section>
         </form>
+        */}
       </div>
     </div>
   );

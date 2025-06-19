@@ -29,7 +29,8 @@ const PaymentOptionsModal = ({ isOpen, onClose }) => {
         </stripe-buy-button>
         <p className="text-sm text-black mt-1">Powered by Stripe</p>
 
-        {/* PayPal Button */}
+        {/* PayPal Button - Commented Out */}
+        {/*
         <style>
           {`.pp-CEQKAAE3PSW6G {
             text-align: center;
@@ -79,6 +80,7 @@ const PaymentOptionsModal = ({ isOpen, onClose }) => {
             />
           </section>
         </form>
+        */}
       </div>
     </div>
   );

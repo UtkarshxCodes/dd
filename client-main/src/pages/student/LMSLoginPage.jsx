@@ -11,11 +11,17 @@ const LMSLoginPage = () => {
   const handleLogin = () => {
     // Validate email and password
     if (email === 'StudentID@v-edu.us' && password === 'V-edu.us1') {
-      sessionStorage.setItem('authUser', 'default'); // Store authentication state
+      sessionStorage.setItem('authUserEmail', email); // Store authentication state
+      sessionStorage.setItem('authUserName', 'Default User'); // Store user name
       navigate('/lms-dashboard'); // Redirect to LMSDashboard
     } else if (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') {
-      sessionStorage.setItem('authUser', 'christiano'); // Store authentication state
-      navigate('/lms-dashboard?user=christiano'); // Redirect to personalized LMSDashboard
+      sessionStorage.setItem('authUserEmail', email); // Store authentication state
+      sessionStorage.setItem('authUserName', 'Christiano'); // Store user name
+      navigate('/lms-dashboard'); // Redirect to personalized LMSDashboard
+    } else if (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') {
+      sessionStorage.setItem('authUserEmail', email); // Store authentication state
+      sessionStorage.setItem('authUserName', 'Lucretia'); // Store user name
+      navigate('/lms-dashboard'); // Redirect to personalized LMSDashboard
     } else {
       setError('Invalid email or password. Please try again.');
     }
@@ -37,7 +43,7 @@ const LMSLoginPage = () => {
             <FaUserCircle size={20} className="text-gray-500 mr-2" />
             <input
               type="email"
-              placeholder="StudentID@v-edu.us"
+              placeholder="Enter your email"
               className="w-full outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
