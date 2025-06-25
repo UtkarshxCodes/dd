@@ -4,6 +4,9 @@ const MyEnrollments = ({ userEmail }) => {
   const [showCurriculum, setShowCurriculum] = useState(false);
 
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
+  const isCyberUser =
+    userEmail === 'christianocampo1230@hotmail.com' ||
+    userEmail === 'archana.katangur@gmail.com';
 
   return (
     <div className="mt-6">
@@ -29,7 +32,7 @@ const MyEnrollments = ({ userEmail }) => {
               📜 View Curriculum
             </button>
           </div>
-        ) : (
+        ) : isCyberUser ? (
           <div className="border rounded-lg p-4 mb-6">
             <h4 className="text-xl font-bold mb-2">🎓 Cybersecurity & Ethical Hacking</h4>
             <p className="text-sm text-gray-500 mb-2">Enrolled On: June 15, 2025</p>
@@ -49,7 +52,7 @@ const MyEnrollments = ({ userEmail }) => {
               📜 View Curriculum
             </button>
           </div>
-        )}
+        ) : null}
 
         {showCurriculum && (
           <div className="border rounded-lg p-4">
@@ -94,7 +97,7 @@ const MyEnrollments = ({ userEmail }) => {
                     <span>Final Capstone Project</span>
                   </li>
                 </>
-              ) : (
+              ) : isCyberUser ? (
                 <>
                   <li className="flex items-center gap-3">
                     <span>🛡️</span>
@@ -133,7 +136,7 @@ const MyEnrollments = ({ userEmail }) => {
                     <span>Final Capstone Project</span>
                   </li>
                 </>
-              )}
+              ) : null}
             </ul>
           </div>
         )}

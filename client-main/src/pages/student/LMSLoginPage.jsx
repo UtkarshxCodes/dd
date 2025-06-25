@@ -14,9 +14,12 @@ const LMSLoginPage = () => {
       sessionStorage.setItem('authUserEmail', email); // Store authentication state
       sessionStorage.setItem('authUserName', 'Default User'); // Store user name
       navigate('/lms-dashboard'); // Redirect to LMSDashboard
-    } else if (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') {
+    } else if (
+      (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') ||
+      (email === 'archana.katangur@gmail.com' && password === 'Vedu@123')
+    ) {
       sessionStorage.setItem('authUserEmail', email); // Store authentication state
-      sessionStorage.setItem('authUserName', 'Christiano'); // Store user name
+      sessionStorage.setItem('authUserName', email === 'archana.katangur@gmail.com' ? 'Archana' : 'Christiano'); // Store user name
       navigate('/lms-dashboard'); // Redirect to personalized LMSDashboard
     } else if (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') {
       sessionStorage.setItem('authUserEmail', email); // Store authentication state

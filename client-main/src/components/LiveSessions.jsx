@@ -14,11 +14,15 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/emvxiMdmwMw",
       title: "2",
     },
+     {
+      src: "https://www.youtube.com/embed/yRlVNEvxhf8",
+      title: "3",
+    },
   ];
 
   const dataScienceVideos = [
     {
-      src: "https://www.youtube.com/embed/UNLISTED_DS_VIDEO_ID_1",
+      src: "https://www.youtube.com/embed/I09YA-9puVI",
       title: "Week 1 - Introduction to Data Science",
     },
     {
@@ -27,14 +31,11 @@ const LiveSessions = () => {
     },
   ];
 
-  // Choose which videos to show
-  const videos =
-    userEmail === 'lucretiahenry@rocketmail.com'
-      ? dataScienceVideos
-      : cyberVideos;
+  const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
+  const videos = isDataScienceUser ? dataScienceVideos : cyberVideos;
 
   return (
-    <div>
+    <div> 
       <h3 className="text-lg font-bold mb-4">Live Sessions / Recordings</h3>
       <p className="text-sm text-gray-500 mb-2">Access session replays here.</p>
       <div className="grid md:grid-cols-2 gap-4">
