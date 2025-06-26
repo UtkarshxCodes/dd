@@ -14,7 +14,7 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/emvxiMdmwMw",
       title: "2",
     },
-     {
+    {
       src: "https://www.youtube.com/embed/yRlVNEvxhf8",
       title: "3",
     },
@@ -32,7 +32,19 @@ const LiveSessions = () => {
   ];
 
   const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
-  const videos = isDataScienceUser ? dataScienceVideos : cyberVideos;
+  const isArchana = userEmail === 'archana.katangur@gmail.com';
+
+  // For Archana, filter out videos with title "1" and "3"
+  let videos;
+  if (isDataScienceUser) {
+    videos = dataScienceVideos;
+  } else if (isArchana) {
+    videos = cyberVideos.filter(
+      (video) => video.title !== "1" && video.title !== "3"
+    );
+  } else {
+    videos = cyberVideos;
+  }
 
   return (
     <div> 

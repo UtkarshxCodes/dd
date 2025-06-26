@@ -122,8 +122,9 @@ const Footer = () => {
             <p className="text-sm text-gray-700 mb-4">Effective  2025</p>
             <p className="text-sm text-gray-700 mb-4">V-EDU.us LLC</p>
             <p className="text-sm text-gray-700 mb-4">
-              At V-EDU.us LLC (“V-EDU”, “we”, “our”, or “us”), we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you visit our website at https://v-edu.us and interact with our products and services.
+              At V-EDU.us LLC (“V-EDU”, “we”, “our”, or “us”), we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you visit our website at https://v-edu.us and interact with our products and services.  
             </p>
+            <p className="text-sm text-gray-700 mb-4">No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties</p>
             <button
               className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition mt-4"
               onClick={() => setShowPrivacyPolicy(false)}
