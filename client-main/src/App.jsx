@@ -22,6 +22,8 @@ import CourseRegistration from './components/student/CourseRegistration';
 import LMSLoginPage from './pages/student/LMSLoginPage';
 import LMSDashboard from './pages/student/LMSDashboard';
 import QuizSection from './components/student/quiz';
+import PrivacyPolicyPage from "./pages/student/PrivacyPolicyPage";
+import ReturnPolicyPage from "./pages/student/ReturnPolicyPage";
 
 const App = () => {
   const [showRegistration, setShowRegistration] = useState(false);
@@ -74,6 +76,8 @@ const App = () => {
         <Route path="/lms-login" element={<LMSLoginPage />} />
         <Route path="/lms-dashboard" element={<LMSDashboard />} />
         <Route path="/quiz" element={<QuizSection />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/return-policy" element={<ReturnPolicyPage />} />
       </Routes>
       <CourseRegistration
         isOpen={showRegistration}
