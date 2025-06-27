@@ -20,6 +20,17 @@ const LiveSessions = () => {
     },
   ];
 
+  const archanaCyberVideos = [
+    {
+      src: "https://www.youtube.com/embed/emvxiMdmwMw",
+      title: "2",
+    },
+    {
+      src: "https://www.youtube.com/embed/Z-7LzulpuJE",
+      title: "archana",
+    },
+  ];
+
   const dataScienceVideos = [
     {
       src: "https://www.youtube.com/embed/I09YA-9puVI",
@@ -34,14 +45,11 @@ const LiveSessions = () => {
   const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
 
-  // For Archana, filter out videos with title "1" and "3"
   let videos;
   if (isDataScienceUser) {
     videos = dataScienceVideos;
   } else if (isArchana) {
-    videos = cyberVideos.filter(
-      (video) => video.title !== "1" && video.title !== "3"
-    );
+    videos = archanaCyberVideos;
   } else {
     videos = cyberVideos;
   }
