@@ -40,6 +40,10 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/UNLISTED_DS_VIDEO_ID_2",
       title: "Week 2 - Python for Data Science",
     },
+    {
+      src: "https://www.youtube.com/embed/jtJ943buPRM",
+      title: "Special Data Science Session",
+    },
   ];
 
   const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
