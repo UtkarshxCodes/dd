@@ -18,32 +18,53 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/yRlVNEvxhf8",
       title: "3",
     },
+       {
+      src: "https://www.youtube.com/embed/7Mm1Icd3eSc",
+      title: "V-EDU",
+    },
+       {
+      src: "https://www.youtube.com/embed/nywmb-sC3nw",
+      title: "V-EDU",
+    },
   ];
 
   const archanaCyberVideos = [
     {
       src: "https://www.youtube.com/embed/emvxiMdmwMw",
-      title: "2",
+      title: "V-EDU",
     },
     {
-      src: "https://www.youtube.com/embed/Z-7LzulpuJE",
-      title: "archana",
+      src: "https://www.youtube.com/embed/2k-7FMNDfx0",
+      title: "V-EDU",
+    },
+     {
+      src: "https://www.youtube.com/embed/7Mm1Icd3eSc",
+      title: "V-EDU",
+    },
+       {
+      src: "https://www.youtube.com/embed/nywmb-sC3nw",
+      title: "V-EDU",
     },
   ];
 
   const dataScienceVideos = [
     {
       src: "https://www.youtube.com/embed/I09YA-9puVI",
-      title: "Week 1 - Introduction to Data Science",
+      title: "Data Science",
     },
-    {
-      src: "https://www.youtube.com/embed/UNLISTED_DS_VIDEO_ID_2",
-      title: "Week 2 - Python for Data Science",
-    },
-    {
+      {
       src: "https://www.youtube.com/embed/jtJ943buPRM",
-      title: "Special Data Science Session",
+      title: "Data Science",
     },
+    {
+      src: "https://www.youtube.com/embed/7RywFWtOoCE",
+      title: "Data Science",
+    },
+    {
+      src: "https://www.youtube.com/embed/WWvN5XPW2us",
+      title: "Data Science",
+    },
+   
   ];
 
   const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
