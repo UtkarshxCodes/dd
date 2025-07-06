@@ -34,7 +34,7 @@ const LiveSessions = () => {
       title: "V-EDU",
     },
     {
-      src: "https://www.youtube.com/embed/",
+      src: "https://www.youtube.com/embed/h7bjapYHBq8",
       title: "V-EDU",
     },
      {
