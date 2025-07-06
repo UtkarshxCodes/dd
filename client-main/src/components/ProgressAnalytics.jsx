@@ -3,18 +3,18 @@ import { PieChart, Pie, Cell, Legend, LineChart, Line, XAxis, YAxis, CartesianGr
 
 const ProgressAnalytics = () => {
   const pieData = [
-    { name: 'Completed', value: 1 },
-    { name: 'In Progress', value: 3 },
-    { name: 'Not Started', value: 97 },
+    { name: 'Completed', value: 10 },
+    { name: 'In Progress', value: 11 },
+    { name: 'Not Started', value: 79},
   ];
 
   const COLORS = ['#00C49F', '#FFBB28', '#FF8042'];
 
   const lineData = [
-    { week: 'Week 1', hours: 0.1},
-    { week: 'Week 2', hours: 0 },
-    { week: 'Week 3', hours: 0 },
-    { week: 'Week 4', hours: 0 },
+    { week: 'Week 1', hours: 1},
+    { week: 'Week 2', hours: 1 },
+    { week: 'Week 3', hours: 1 },
+    { week: 'Week 4', hours: 0.55 },
     { week: 'Week 5', hours: 0 },
   ];
 

@@ -17,8 +17,8 @@ const MyEnrollments = ({ userEmail }) => {
             <h4 className="text-xl font-bold mb-2">🎓 Data Science & AI</h4>
             <p className="text-sm text-gray-500 mb-2">Enrolled On: June 15, 2025</p>
             <p className="text-sm text-gray-500 mb-2">Course ID: DS-AI-101</p>
-            <p className="text-sm text-gray-500 mb-2">Instructor: David Watts</p>
-            <p className="text-sm text-gray-500 mb-2">Progress: 2%</p>
+            <p className="text-sm text-gray-500 mb-2">Instructor: V-edu</p>
+            <p className="text-sm text-gray-500 mb-2">Progress:13%</p>
             <p className="text-sm text-gray-500 mb-2">Status: In Progress</p>
             <p className="text-sm text-gray-500 mb-2">Duration: 26 weeks</p>
             <p className="text-sm text-gray-500 mb-4">
@@ -37,8 +37,8 @@ const MyEnrollments = ({ userEmail }) => {
             <h4 className="text-xl font-bold mb-2">🎓 Cybersecurity & Ethical Hacking</h4>
             <p className="text-sm text-gray-500 mb-2">Enrolled On: June 15, 2025</p>
             <p className="text-sm text-gray-500 mb-2">Course ID: CSEH-205</p>
-            <p className="text-sm text-gray-500 mb-2">Instructor: Stefin Watts</p>
-            <p className="text-sm text-gray-500 mb-2">Progress: 3%</p>
+            <p className="text-sm text-gray-500 mb-2">Instructor: V-edu</p>
+            <p className="text-sm text-gray-500 mb-2">Progress: 15%</p>
             <p className="text-sm text-gray-500 mb-2">Status: In Progress</p>
             <p className="text-sm text-gray-500 mb-2">Duration: 26 weeks</p>
             <p className="text-sm text-gray-500 mb-4">
