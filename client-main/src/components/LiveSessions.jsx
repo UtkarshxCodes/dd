@@ -68,6 +68,10 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/OBGsdbNTLlg",
       title: "Data Science",
     },
+     {
+      src: "https://www.youtube.com/embed/d_DKtEUlNIw",
+      title: "Data Science",
+    },
    
   ];
 
