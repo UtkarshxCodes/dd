@@ -164,8 +164,8 @@ const LMSDashboard = () => {
           {activeSection === 'My Enrollments' && <MyEnrollments userEmail={userEmail} />}
           {activeSection === 'Progress Analytics' && <ProgressAnalytics />}
           {activeSection === 'Assignments / Tasks' &&
-            (userEmail === 'lucretiahenry@rocketmail.com' ? (
-              <DataScienceAssignments />
+            (userEmail === 'lucretiahenry@rocketmail.com' || userEmail === 'veemal16@gmail.com' ? (
+              <DataScienceAssignments userEmail={userEmail} />
             ) : (
               <AssignmentsTasks />
             ))}
