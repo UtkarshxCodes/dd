@@ -26,6 +26,10 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/nywmb-sC3nw",
       title: "V-EDU",
     },
+       {
+      src: "https://www.youtube.com/embed/zY05oAvl-Fs",
+      title: "V-EDU",
+    },
   ];
 
   const archanaCyberVideos = [
@@ -43,6 +47,10 @@ const LiveSessions = () => {
     },
        {
       src: "https://www.youtube.com/embed/nywmb-sC3nw",
+      title: "V-EDU",
+    },
+      {
+      src: "https://www.youtube.com/embed/zY05oAvl-Fs",
       title: "V-EDU",
     },
   ];
