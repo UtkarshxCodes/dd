@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
-const DataScienceAssignments = () => {
+const DataScienceAssignments = ({ userEmail }) => {
+  // Only show assignments for Lucretia and Veemal
+  const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
+  const isVeemal = userEmail === 'veemal16@gmail.com';
+
+  if (!isLucretia && !isVeemal) {
+    return (
+      <div className="text-center text-gray-500 py-10">
+        No assignments available for your account.
+      </div>
+    );
+  }
+
   const assignments = [
     {
       title: '🧩 Assignment 1: Introduction to Data Science',
