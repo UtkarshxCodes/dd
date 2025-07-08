@@ -18,13 +18,16 @@ const LMSLoginPage = () => {
       (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') ||
       (email === 'archana.katangur@gmail.com' && password === 'Vedu@123')
     ) {
-      sessionStorage.setItem('authUserEmail', email); // Store authentication state
-      sessionStorage.setItem('authUserName', email === 'archana.katangur@gmail.com' ? 'Archana' : 'Christiano'); // Store user name
-      navigate('/lms-dashboard'); // Redirect to personalized LMSDashboard
-    } else if (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') {
-      sessionStorage.setItem('authUserEmail', email); // Store authentication state
-      sessionStorage.setItem('authUserName', 'Lucretia'); // Store user name
-      navigate('/lms-dashboard'); // Redirect to personalized LMSDashboard
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem('authUserName', email === 'archana.katangur@gmail.com' ? 'Archana' : 'Christiano');
+      navigate('/lms-dashboard');
+    } else if (
+      (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') ||
+      (email === 'veemal16@gmail.com' && password === 'Vedu@123')
+    ) {
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem('authUserName', email === 'veemal16@gmail.com' ? 'Veemal' : 'Lucretia');
+      navigate('/lms-dashboard');
     } else {
       setError('Invalid email or password. Please try again.');
     }

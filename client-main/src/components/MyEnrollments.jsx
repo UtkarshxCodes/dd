@@ -4,21 +4,32 @@ const MyEnrollments = ({ userEmail }) => {
   const [showCurriculum, setShowCurriculum] = useState(false);
 
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
+  const isVeemal = userEmail === 'veemal16@gmail.com';
   const isCyberUser =
     userEmail === 'christianocampo1230@hotmail.com' ||
     userEmail === 'archana.katangur@gmail.com';
+
+  // Set enrollment date based on user
+  let enrollmentDate = '';
+  if (isLucretia) {
+    enrollmentDate = 'June, 2025';
+  } else if (isVeemal) {
+    enrollmentDate = 'July, 2025';
+  } else if (isCyberUser) {
+    enrollmentDate = 'June 15, 2025';
+  }
 
   return (
     <div className="mt-6">
       <h3 className="text-lg font-bold mb-4">📚 My Enrollments</h3>
       <div className="bg-white p-6 rounded-lg shadow-md">
-        {isLucretia ? (
+        {(isLucretia || isVeemal) ? (
           <div className="border rounded-lg p-4 mb-6">
             <h4 className="text-xl font-bold mb-2">🎓 Data Science & AI</h4>
-            <p className="text-sm text-gray-500 mb-2">Enrolled On: June 15, 2025</p>
+            <p className="text-sm text-gray-500 mb-2">Enrolled On: {enrollmentDate}</p>
             <p className="text-sm text-gray-500 mb-2">Course ID: DS-AI-101</p>
             <p className="text-sm text-gray-500 mb-2">Instructor: V-edu</p>
-            <p className="text-sm text-gray-500 mb-2">Progress:13%</p>
+            <p className="text-sm text-gray-500 mb-2">Progress:1%</p>
             <p className="text-sm text-gray-500 mb-2">Status: In Progress</p>
             <p className="text-sm text-gray-500 mb-2">Duration: 26 weeks</p>
             <p className="text-sm text-gray-500 mb-4">
@@ -35,7 +46,7 @@ const MyEnrollments = ({ userEmail }) => {
         ) : isCyberUser ? (
           <div className="border rounded-lg p-4 mb-6">
             <h4 className="text-xl font-bold mb-2">🎓 Cybersecurity & Ethical Hacking</h4>
-            <p className="text-sm text-gray-500 mb-2">Enrolled On: June 15, 2025</p>
+            <p className="text-sm text-gray-500 mb-2">Enrolled On: {enrollmentDate}</p>
             <p className="text-sm text-gray-500 mb-2">Course ID: CSEH-205</p>
             <p className="text-sm text-gray-500 mb-2">Instructor: V-edu</p>
             <p className="text-sm text-gray-500 mb-2">Progress: 15%</p>
@@ -58,7 +69,7 @@ const MyEnrollments = ({ userEmail }) => {
           <div className="border rounded-lg p-4">
             <h4 className="text-lg font-bold mb-4">📜 Curriculum Modules</h4>
             <ul className="space-y-4">
-              {isLucretia ? (
+              {(isLucretia || isVeemal) ? (
                 <>
                   <li className="flex items-center gap-3">
                     <span>📊</span>

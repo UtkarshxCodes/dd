@@ -18,15 +18,15 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/yRlVNEvxhf8",
       title: "3",
     },
-       {
+    {
       src: "https://www.youtube.com/embed/7Mm1Icd3eSc",
       title: "V-EDU",
     },
-       {
+    {
       src: "https://www.youtube.com/embed/nywmb-sC3nw",
       title: "V-EDU",
     },
-       {
+    {
       src: "https://www.youtube.com/embed/zY05oAvl-Fs",
       title: "V-EDU",
     },
@@ -41,15 +41,15 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/h7bjapYHBq8",
       title: "V-EDU",
     },
-     {
+    {
       src: "https://www.youtube.com/embed/7Mm1Icd3eSc",
       title: "V-EDU",
     },
-       {
+    {
       src: "https://www.youtube.com/embed/nywmb-sC3nw",
       title: "V-EDU",
     },
-      {
+    {
       src: "https://www.youtube.com/embed/zY05oAvl-Fs",
       title: "V-EDU",
     },
@@ -60,7 +60,7 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/I09YA-9puVI",
       title: "Data Science",
     },
-      {
+    {
       src: "https://www.youtube.com/embed/jtJ943buPRM",
       title: "Data Science",
     },
@@ -76,40 +76,48 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/OBGsdbNTLlg",
       title: "Data Science",
     },
-     {
+    {
       src: "https://www.youtube.com/embed/d_DKtEUlNIw",
       title: "Data Science",
     },
-   
   ];
 
-  const isDataScienceUser = userEmail === 'lucretiahenry@rocketmail.com';
+  const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
+  const isVeemal = userEmail === 'veemal16@gmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
 
   let videos;
-  if (isDataScienceUser) {
+  if (isLucretia) {
     videos = dataScienceVideos;
   } else if (isArchana) {
     videos = archanaCyberVideos;
+  } else if (isVeemal) {
+    videos = []; // No sessions for veemal
   } else {
     videos = cyberVideos;
   }
 
   return (
-    <div> 
+    <div>
       <h3 className="text-lg font-bold mb-4">Live Sessions / Recordings</h3>
       <p className="text-sm text-gray-500 mb-2">Access session replays here.</p>
-      <div className="grid md:grid-cols-2 gap-4">
-        {videos.map((video, idx) => (
-          <iframe
-            key={idx}
-            className="w-full aspect-video rounded-lg shadow"
-            src={video.src}
-            title={video.title}
-            allowFullScreen
-          ></iframe>
-        ))}
-      </div>
+      {videos.length === 0 ? (
+        <div className="text-center text-gray-500 py-10">
+          No live sessions available at this time.
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-2 gap-4">
+          {videos.map((video, idx) => (
+            <iframe
+              key={idx}
+              className="w-full aspect-video rounded-lg shadow"
+              src={video.src}
+              title={video.title}
+              allowFullScreen
+            ></iframe>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

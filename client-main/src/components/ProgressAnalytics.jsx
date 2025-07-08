@@ -3,9 +3,9 @@ import { PieChart, Pie, Cell, Legend, LineChart, Line, XAxis, YAxis, CartesianGr
 
 const ProgressAnalytics = () => {
   const pieData = [
-    { name: 'Completed', value: 10 },
-    { name: 'In Progress', value: 11 },
-    { name: 'Not Started', value: 79},
+    { name: 'Completed', value: 2 },
+    { name: 'In Progress', value: 8 },
+    { name: 'Not Started', value: 90},
   ];
 
   const COLORS = ['#00C49F', '#FFBB28', '#FF8042'];
