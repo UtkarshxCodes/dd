@@ -4,9 +4,8 @@ const DataScienceAssignments = ({ userEmail }) => {
   // Only show assignments for Lucretia and Veemal
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
   const isVeemal = userEmail === 'veemal16@gmail.com';
-  const isRonesh = userEmail === 'singhronesh96@gmail.com';
 
-  if (!isLucretia && !isVeemal && !isRonesh) {
+  if (!isLucretia && !isVeemal) {
     return (
       <div className="text-center text-gray-500 py-10">
         No assignments available for your account.

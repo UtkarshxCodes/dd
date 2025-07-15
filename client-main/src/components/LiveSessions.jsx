@@ -65,7 +65,7 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/xp7vEgIu4Ic",
       title: "V-EDU",
     },
-     {
+    {
       src: "https://www.youtube.com/embed/tn9g1TqgSSQ",
       title: "V-EDU",
     },
@@ -98,24 +98,15 @@ const LiveSessions = () => {
     },
   ];
 
-  // Common session for Ronesh and Veemal
-  const roneshVeemalVideos = [
-    {
-      src: "https://www.youtube.com/embed/HDoDuVMqyTY",
-      title: "V-EDU",
-    },
-  ];
-
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
   const isVeemal = userEmail === 'veemal16@gmail.com';
-  //const isRonesh = userEmail === 'singhronesh96@gmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
 
   let videos;
   if (isLucretia) {
     videos = dataScienceVideos;
-  } else if (isVeemal || isRonesh) {
-    videos = roneshVeemalVideos;
+  } else if (isVeemal) {
+    videos = []; // No sessions for veemal
   } else if (isArchana) {
     videos = archanaCyberVideos;
   } else {
