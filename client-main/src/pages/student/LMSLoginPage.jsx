@@ -23,16 +23,16 @@ const LMSLoginPage = () => {
       navigate('/lms-dashboard');
     } else if (
       (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') ||
-      (email === 'veemal16@gmail.com' && password === 'Vedu@123') ||
-      (email === 'singhronesh96@gmail.com' && password === 'Vedu@123')
+      (email === 'veemal16@gmail.com' && password === 'Vedu@123')
+      // (email === 'singhronesh96@gmail.com' && password === 'Vedu@123') // <-- Ronesh access removed
     ) {
       sessionStorage.setItem('authUserEmail', email);
       sessionStorage.setItem(
         'authUserName',
         email === 'veemal16@gmail.com'
           ? 'Veemal'
-          : email === 'singhronesh96@gmail.com'
-          ? 'Ronesh'
+          // : email === 'singhronesh96@gmail.com'
+          // ? 'Ronesh'
           : 'Lucretia'
       );
       navigate('/lms-dashboard');
