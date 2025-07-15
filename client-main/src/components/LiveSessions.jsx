@@ -34,6 +34,10 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/xp7vEgIu4Ic",
       title: "V-EDU",
     },
+    {
+      src: "https://www.youtube.com/embed/tn9g1TqgSSQ",
+      title: "V-EDU",
+    },
   ];
 
   const archanaCyberVideos = [
@@ -59,6 +63,10 @@ const LiveSessions = () => {
     },
     {
       src: "https://www.youtube.com/embed/xp7vEgIu4Ic",
+      title: "V-EDU",
+    },
+     {
+      src: "https://www.youtube.com/embed/tn9g1TqgSSQ",
       title: "V-EDU",
     },
   ];
@@ -100,7 +108,7 @@ const LiveSessions = () => {
 
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
   const isVeemal = userEmail === 'veemal16@gmail.com';
-  const isRonesh = userEmail === 'singhronesh96@gmail.com';
+  //const isRonesh = userEmail === 'singhronesh96@gmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
 
   let videos;
