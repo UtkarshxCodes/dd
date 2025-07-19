@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import USDIcon from "../../assets/USD.png";
+import GBPIcon from "../../assets/GBP.png";
 
 const EnrollNowModal = ({ isOpen, onClose }) => {
   const [currency, setCurrency] = useState(""); // No default selection
@@ -58,23 +60,25 @@ const EnrollNowModal = ({ isOpen, onClose }) => {
         <h2 className="text-lg font-bold mb-2">Select Currency</h2>
         <div className="flex gap-4 mb-4">
           <button
-            className={`px-4 py-2 rounded-md font-bold border ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-md font-bold border transition ${
               currency === "USD"
-                ? "bg-blue-700 text-white"
+                ? "bg-blue-700 text-white shadow"
                 : "bg-gray-100 text-black"
             }`}
             onClick={() => setCurrency("USD")}
           >
+            <img src={USDIcon} alt="USD" className="w-6 h-6" />
             USD
           </button>
           <button
-            className={`px-4 py-2 rounded-md font-bold border ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-md font-bold border transition ${
               currency === "GBP"
-                ? "bg-blue-700 text-white"
+                ? "bg-blue-700 text-white shadow"
                 : "bg-gray-100 text-black"
             }`}
             onClick={() => setCurrency("GBP")}
           >
+            <img src={GBPIcon} alt="GBP" className="w-6 h-6" />
             GBP
           </button>
         </div>

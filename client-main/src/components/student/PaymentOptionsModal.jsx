@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import USDIcon from "../../assets/USD.png";
+import GBPIcon from "../../assets/GBP.png";
 
 const PaymentOptionsModal = ({ isOpen, onClose }) => {
+  const [currency, setCurrency] = useState(""); // No default selection
+  const stripeContainerRef = useRef(null);
+
+  // Stripe buy button IDs for each currency
+  const stripeBuyButtonIdUSD = "buy_btn_1RTMs9LR5W9p8YK7TyWDdJzN";
+  const stripeBuyButtonIdGBP = "buy_btn_1RmelILR5W9p8YK7IMOPAvy8";
+  const publishableKey =
+    "pk_live_51ROty0LR5W9p8YK78vG1oilWcp5blFSvTFZrGGisTnrRs96OfmpeI26O6cMPMcwHXSr1SeOkJlKuGHH0bBg9IMw100ibyfTgDL";
+
+  useEffect(() => {
+    if (!currency || !isOpen) return; // Only render if currency is selected and modal is open
+
+    // Load Stripe buy button script only once
+    if (!window.StripeBuyButton) {
+      const script = document.createElement("script");
+      script.src = "https://js.stripe.com/v3/buy-button.js";
+      script.async = true;
+      document.body.appendChild(script);
+      script.onload = () => {
+        window.StripeBuyButton = true;
+        renderStripeButton();
+      };
+    } else {
+      renderStripeButton();
+    }
+
+    function renderStripeButton() {
+      if (stripeContainerRef.current) {
+        stripeContainerRef.current.innerHTML = "";
+        const stripeBtn = document.createElement("stripe-buy-button");
+        stripeBtn.setAttribute(
+          "buy-button-id",
+          currency === "USD" ? stripeBuyButtonIdUSD : stripeBuyButtonIdGBP
+        );
+        stripeBtn.setAttribute("publishable-key", publishableKey);
+        stripeContainerRef.current.appendChild(stripeBtn);
+      }
+    }
+  }, [currency, isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -15,72 +57,38 @@ const PaymentOptionsModal = ({ isOpen, onClose }) => {
         <h2 className="text-2xl font-bold text-center text-blue-700">
           Complete - Registration
         </h2>
-        <p className="text-lg font-semibold text-gray-700">$199.00 USD</p>
-
-        {/* Stripe Button */}
-        <script
-          async
-          src="https://js.stripe.com/v3/buy-button.js"
-        ></script>
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RTMs9LR5W9p8YK7TyWDdJzN"
-          publishable-key="pk_live_51ROty0LR5W9p8YK78vG1oilWcp5blFSvTFZrGGisTnrRs96OfmpeI26O6cMPMcwHXSr1SeOkJlKuGHH0bBg9IMw100ibyfTgDL"
-        >
-        </stripe-buy-button>
+        <h3 className="text-lg font-bold mb-2">Select Currency</h3>
+        <div className="flex gap-4 mb-4">
+          <button
+            className={`flex items-center gap-2 px-4 py-2 rounded-md font-bold border transition ${
+              currency === "USD"
+                ? "bg-blue-700 text-white shadow"
+                : "bg-gray-100 text-black"
+            }`}
+            onClick={() => setCurrency("USD")}
+          >
+            <img src={USDIcon} alt="USD" className="w-6 h-6" />
+            USD
+          </button>
+          <button
+            className={`flex items-center gap-2 px-4 py-2 rounded-md font-bold border transition ${
+              currency === "GBP"
+                ? "bg-blue-700 text-white shadow"
+                : "bg-gray-100 text-black"
+            }`}
+            onClick={() => setCurrency("GBP")}
+          >
+            <img src={GBPIcon} alt="GBP" className="w-6 h-6" />
+            GBP
+          </button>
+        </div>
+        <p className="text-lg font-semibold text-gray-700">
+          {currency === "USD" && "$199.00 USD"}
+          {currency === "GBP" && "£ GBP"}
+        </p>
+        {/* Stripe Buy Button */}
+        <div ref={stripeContainerRef} className="w-full flex justify-center"></div>
         <p className="text-sm text-black mt-1">Powered by Stripe</p>
-
-        {/* PayPal Button - Commented Out */}
-        {/*
-        <style>
-          {`.pp-CEQKAAE3PSW6G {
-            text-align: center;
-            border: none;
-            border-radius: 0.25rem;
-            min-width: 11.625rem;
-            padding: 0 2rem;
-            height: 2.625rem;
-            font-weight: bold;
-            background-color: #FFD140;
-            color: #000000;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            font-size: 1rem;
-            line-height: 1.25rem;
-            cursor: pointer;
-          }`}
-        </style>
-        <form
-          action="https://www.paypal.com/ncp/payment/CEQKAAE3PSW6G"
-          method="post"
-          target="_blank"
-          style={{
-            display: "inline-grid",
-            justifyItems: "center",
-            alignContent: "start",
-            gap: "0.5rem",
-          }}
-        >
-          <input
-            className="pp-CEQKAAE3PSW6G"
-            type="submit"
-            value="Pay Now"
-          />
-          <img
-            src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg"
-            alt="cards"
-          />
-          <section style={{ fontSize: "0.75rem" }}>
-            Powered by{" "}
-            <img
-              src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-              alt="paypal"
-              style={{
-                height: "0.875rem",
-                verticalAlign: "middle",
-              }}
-            />
-          </section>
-        </form>
-        */}
       </div>
     </div>
   );
