@@ -6,9 +6,11 @@ const MyEnrollments = ({ userEmail }) => {
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
   const isVeemal = userEmail === 'veemal16@gmail.com';
   const isRonesh = userEmail === 'singhronesh96@gmail.com';
+  const isRocco = userEmail === 'roccosegreti@yahoo.com';
   const isCyberUser =
     userEmail === 'christianocampo1230@hotmail.com' ||
-    userEmail === 'archana.katangur@gmail.com';
+    userEmail === 'archana.katangur@gmail.com' ||
+    isRocco;
 
   // Set enrollment date based on user
   let enrollmentDate = '';
@@ -17,6 +19,8 @@ const MyEnrollments = ({ userEmail }) => {
   } else if (isVeemal) {
     enrollmentDate = 'July, 2025';
   } else if (isRonesh) {
+    enrollmentDate = 'July, 2025';
+  } else if (isRocco) {
     enrollmentDate = 'July, 2025';
   } else if (isCyberUser) {
     enrollmentDate = 'June 15, 2025';

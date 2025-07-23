@@ -38,6 +38,14 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/tn9g1TqgSSQ",
       title: "V-EDU",
     },
+     {
+      src: "https://www.youtube.com/embed/IbvZKlVbKxI",
+      title: "V-EDU",
+    },
+     {
+      src: "https://www.youtube.com/embed/vEepQqojGXg",
+      title: "V-EDU",
+    },
   ];
 
   const archanaCyberVideos = [
@@ -69,6 +77,14 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/tn9g1TqgSSQ",
       title: "V-EDU",
     },
+     {
+      src: "https://www.youtube.com/embed/IbvZKlVbKxI",
+      title: "V-EDU",
+    },
+    {
+      src: "https://www.youtube.com/embed/vEepQqojGXg",
+      title: "V-EDU",
+    },
   ];
 
   const dataScienceVideos = [
@@ -96,19 +112,59 @@ const LiveSessions = () => {
       src: "https://www.youtube.com/embed/d_DKtEUlNIw",
       title: "Data Science",
     },
+    {
+      src: "https://www.youtube.com/embed/qmPTb9c559Y",
+      title: "Data Science",
+    },
+      {
+        src: "https://www.youtube.com/embed/xDTJtW0WXSw",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/Xz529PeSV_o",
+        title: "Data Science",
+      },
   ];
 
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
   const isVeemal = userEmail === 'veemal16@gmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
+  const isRocco = userEmail === 'roccosegreti@yahoo.com';
+
+  // Unique videos for Rocco
+  const roccoVideos = [
+    // Add Rocco's unique video links here
+    // Example:
+    // { src: "https://www.youtube.com/embed/rocco_unique_1", title: "Rocco Session 1" },
+    // { src: "https://www.youtube.com/embed/rocco_unique_2", title: "Rocco Session 2" },
+  ];
 
   let videos;
   if (isLucretia) {
     videos = dataScienceVideos;
   } else if (isVeemal) {
-    videos = []; // No sessions for veemal
+    videos = [
+      {
+        src: "https://www.youtube.com/embed/HDoDuVMqyTY",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/qmPTb9c559Y",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/xDTJtW0WXSw",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/Xz529PeSV_o",
+        title: "Data Science",
+      },
+    ];
   } else if (isArchana) {
     videos = archanaCyberVideos;
+  } else if (isRocco) {
+    videos = roccoVideos;
   } else {
     videos = cyberVideos;
   }

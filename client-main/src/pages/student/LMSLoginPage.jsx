@@ -16,23 +16,31 @@ const LMSLoginPage = () => {
       navigate('/lms-dashboard'); // Redirect to LMSDashboard
     } else if (
       (email === 'christianocampo1230@hotmail.com' && password === 'Vedu@123') ||
-      (email === 'archana.katangur@gmail.com' && password === 'Vedu@123')
-    ) {
-      sessionStorage.setItem('authUserEmail', email);
-      sessionStorage.setItem('authUserName', email === 'archana.katangur@gmail.com' ? 'Archana' : 'Christiano');
-      navigate('/lms-dashboard');
-    } else if (
-      (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') ||
-      (email === 'veemal16@gmail.com' && password === 'Vedu@123')
-      // (email === 'singhronesh96@gmail.com' && password === 'Vedu@123') // <-- Ronesh access removed
+      (email === 'archana.katangur@gmail.com' && password === 'Vedu@123') ||
+      (email === 'roccosegreti@yahoo.com' && password === 'Vedu@123')
     ) {
       sessionStorage.setItem('authUserEmail', email);
       sessionStorage.setItem(
         'authUserName',
-        email === 'veemal16@gmail.com'
+        email === 'archana.katangur@gmail.com'
+          ? 'Archana'
+          : email === 'roccosegreti@yahoo.com'
+          ? 'Rocco'
+          : 'Christiano'
+      );
+      navigate('/lms-dashboard');
+    } else if (
+      (email === 'lucretiahenry@rocketmail.com' && password === 'Vedu@123') ||
+      (email === 'veemal16@gmail.com' && password === 'Vedu@123') ||
+      (email === 'roccosegreti@yahoo.com' && password === 'Vedu@123')
+    ) {
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem(
+        'authUserName',
+        email === 'roccosegreti@yahoo.com'
+          ? 'Rocco'
+          : email === 'veemal16@gmail.com'
           ? 'Veemal'
-          // : email === 'singhronesh96@gmail.com'
-          // ? 'Ronesh'
           : 'Lucretia'
       );
       navigate('/lms-dashboard');
