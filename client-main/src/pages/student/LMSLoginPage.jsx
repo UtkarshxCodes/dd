@@ -44,6 +44,12 @@ const LMSLoginPage = () => {
           : 'Lucretia'
       );
       navigate('/lms-dashboard');
+    } else if (
+      (email === 'mushfiqrhmn1@gmail.com' && password === 'Vedu@123')
+    ) {
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem('authUserName', 'Mushfiq');
+      navigate('/lms-dashboard');
     } else {
       setError('Invalid email or password. Please try again.');
     }

@@ -165,12 +165,20 @@ const LMSDashboard = () => {
           {activeSection === 'Progress Analytics' && <ProgressAnalytics />}
           {activeSection === 'Assignments / Tasks' &&
             (userEmail === 'lucretiahenry@rocketmail.com' ||
-             userEmail === 'veemal16@gmail.com' ? (
+             userEmail === 'veemal16@gmail.com' ||
+             userEmail === 'mushfiqrhmn1@gmail.com' ? (
               <DataScienceAssignments userEmail={userEmail} />
             ) : (
               <AssignmentsTasks />
             ))}
-          {activeSection === 'Live Sessions / Recordings' && <LiveSessions />}
+          {activeSection === 'Live Sessions / Recordings' &&
+            (userEmail === 'mushfiqrhmn1@gmail.com' ? (
+              <div className="text-center text-gray-500 py-10">
+                No live sessions available at this time.
+              </div>
+            ) : (
+              <LiveSessions />
+            ))}
           {activeSection === 'Ask Mentor (Doubt Forum)' && <AskMentor />}
           {activeSection === 'Certificates' && (
             <div>
