@@ -173,9 +173,16 @@ const LMSDashboard = () => {
             ))}
           {activeSection === 'Live Sessions / Recordings' &&
             (userEmail === 'mushfiqrhmn1@gmail.com' ? (
-              <div className="text-center text-gray-500 py-10">
-                No live sessions available at this time.
-              </div>
+              <LiveSessions videos={[
+                {
+                  src: "https://www.youtube.com/embed/_mC7gdoqOf4",
+                  title: "Data Science Session",
+                },
+                {
+                  src: "https://www.youtube.com/embed/bt-sfIpT8F0",
+                  title: "Data Science Session",
+                },
+              ]} />
             ) : (
               <LiveSessions />
             ))}

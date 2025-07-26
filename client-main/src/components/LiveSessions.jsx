@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LiveSessions = () => {
+const LiveSessions = ({ videos: propVideos }) => {
   // Get the logged-in user's email from sessionStorage
   const userEmail = sessionStorage.getItem('authUserEmail');
 
@@ -130,17 +130,24 @@ const LiveSessions = () => {
   const isVeemal = userEmail === 'veemal16@gmail.com';
   const isArchana = userEmail === 'archana.katangur@gmail.com';
   const isRocco = userEmail === 'roccosegreti@yahoo.com';
+  const isMushfiq = userEmail === 'mushfiqrhmn1@gmail.com';
 
-  // Unique videos for Rocco
-  const roccoVideos = [
-    // Add Rocco's unique video links here
-    // Example:
-    // { src: "https://www.youtube.com/embed/rocco_unique_1", title: "Rocco Session 1" },
-    // { src: "https://www.youtube.com/embed/rocco_unique_2", title: "Rocco Session 2" },
+  // Unique videos for Mushfiq
+  const mushfiqVideos = [
+    {
+      src: "https://www.youtube.com/embed/_mC7gdoqOf4",
+      title: "Data Science Session",
+    },
+    {
+      src: "https://www.youtube.com/embed/bt-sfIpT8F0",
+      title: "Data Science Session",
+    },
   ];
 
   let videos;
-  if (isLucretia) {
+  if (propVideos) {
+    videos = propVideos;
+  } else if (isLucretia) {
     videos = dataScienceVideos;
   } else if (isVeemal) {
     videos = [
@@ -165,6 +172,8 @@ const LiveSessions = () => {
     videos = archanaCyberVideos;
   } else if (isRocco) {
     videos = roccoVideos;
+  } else if (isMushfiq) {
+    videos = mushfiqVideos;
   } else {
     videos = cyberVideos;
   }
