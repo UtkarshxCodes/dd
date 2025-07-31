@@ -166,13 +166,16 @@ const LMSDashboard = () => {
           {activeSection === 'Assignments / Tasks' &&
             (userEmail === 'lucretiahenry@rocketmail.com' ||
              userEmail === 'veemal16@gmail.com' ||
-             userEmail === 'mushfiqrhmn1@gmail.com' ? (
+             userEmail === 'mushfiqrhmn1@gmail.com' ||
+             userEmail === 'conuwa.a@gmail.com' ? (
               <DataScienceAssignments userEmail={userEmail} />
             ) : (
               <AssignmentsTasks />
             ))}
           {activeSection === 'Live Sessions / Recordings' &&
-            (userEmail === 'mushfiqrhmn1@gmail.com' ? (
+            (userEmail === 'conuwa.a@gmail.com' ? (
+              <LiveSessions videos={[]} />
+            ) : userEmail === 'mushfiqrhmn1@gmail.com' ? (
               <LiveSessions videos={[
                 {
                   src: "https://www.youtube.com/embed/_mC7gdoqOf4",
@@ -182,10 +185,10 @@ const LMSDashboard = () => {
                   src: "https://www.youtube.com/embed/bt-sfIpT8F0",
                   title: "Data Science Session",
                 },
-                  {
-      src: "https://www.youtube.com/embed/0gI5VkxUpa0",
-      title: "Data Science Session",
-    },
+                {
+                  src: "https://www.youtube.com/embed/0gI5VkxUpa0",
+                  title: "Data Science Session",
+                },
               ]} />
             ) : (
               <LiveSessions />
