@@ -132,6 +132,18 @@ const LiveSessions = ({ videos: propVideos }) => {
   const isRocco = userEmail === 'roccosegreti@yahoo.com';
   const isMushfiq = userEmail === 'mushfiqrhmn1@gmail.com';
 
+  // Unique videos for Rocco
+  const roccoVideos = [
+    {
+      src: "https://www.youtube.com/embed/qIAQeodpgw4",
+      title: "Rocco Cybersecurity Session",
+    },
+     {
+      src: "https://www.youtube.com/embed/sx6hgnC6YNY",
+      title: "Rocco Cybersecurity Session",
+    },
+  ];
+
   // Unique videos for Mushfiq
   const mushfiqVideos = [
     {
@@ -140,6 +152,10 @@ const LiveSessions = ({ videos: propVideos }) => {
     },
     {
       src: "https://www.youtube.com/embed/bt-sfIpT8F0",
+      title: "Data Science Session",
+    },
+    {
+      src: "https://www.youtube.com/embed/0gI5VkxUpa0",
       title: "Data Science Session",
     },
   ];
