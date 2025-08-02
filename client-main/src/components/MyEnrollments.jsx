@@ -13,6 +13,7 @@ const MyEnrollments = ({ userEmail }) => {
     userEmail === 'archana.katangur@gmail.com' ||
     isRocco;
   const isConu = userEmail === 'conuwa.a@gmail.com';
+  const isRussell = userEmail === 'russeellmbakers@gmail.com';
 
   // Set enrollment date based on user
   let enrollmentDate = '';
@@ -32,7 +33,7 @@ const MyEnrollments = ({ userEmail }) => {
     <div className="mt-6">
       <h3 className="text-lg font-bold mb-4">📚 My Enrollments</h3>
       <div className="bg-white p-6 rounded-lg shadow-md">
-        {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu) ? (
+        {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu || isRussell) ? (
           <div className="border rounded-lg p-4 mb-6">
             <h4 className="text-xl font-bold mb-2">🎓 Data Science & AI</h4>
             <p className="text-sm text-gray-500 mb-2">Enrolled On: {enrollmentDate}</p>

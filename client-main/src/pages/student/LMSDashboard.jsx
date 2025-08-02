@@ -167,13 +167,14 @@ const LMSDashboard = () => {
             (userEmail === 'lucretiahenry@rocketmail.com' ||
              userEmail === 'veemal16@gmail.com' ||
              userEmail === 'mushfiqrhmn1@gmail.com' ||
-             userEmail === 'conuwa.a@gmail.com' ? (
+             userEmail === 'conuwa.a@gmail.com' ||
+             userEmail === 'russeellmbakers@gmail.com' ? (
               <DataScienceAssignments userEmail={userEmail} />
             ) : (
               <AssignmentsTasks />
             ))}
           {activeSection === 'Live Sessions / Recordings' &&
-            (userEmail === 'conuwa.a@gmail.com' ? (
+            (userEmail === 'conuwa.a@gmail.com' || userEmail === 'russeellmbakers@gmail.com' ? (
               <LiveSessions videos={[]} />
             ) : userEmail === 'mushfiqrhmn1@gmail.com' ? (
               <LiveSessions videos={[
