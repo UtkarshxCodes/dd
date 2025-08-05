@@ -124,6 +124,18 @@ const LiveSessions = ({ videos: propVideos }) => {
         src: "https://www.youtube.com/embed/Xz529PeSV_o",
         title: "Data Science",
       },
+       {
+        src: "https://www.youtube.com/embed/jAk3URuAW80",
+        title: "Data Science",
+      },
+        {
+        src: "https://www.youtube.com/embed/unxso7YdrXQ",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/fhIfqScgqD4",
+        title: "Data Science",
+      },
   ];
 
   const isLucretia = userEmail === 'lucretiahenry@rocketmail.com';
@@ -131,6 +143,8 @@ const LiveSessions = ({ videos: propVideos }) => {
   const isArchana = userEmail === 'archana.katangur@gmail.com';
   const isRocco = userEmail === 'roccosegreti@yahoo.com';
   const isMushfiq = userEmail === 'mushfiqrhmn1@gmail.com';
+  const isConu = userEmail === 'conuwa.a@gmail.com';
+  const isRussell = userEmail === 'russellmbaker@gmail.com';
 
   // Unique videos for Rocco
   const roccoVideos = [
@@ -160,6 +174,24 @@ const LiveSessions = ({ videos: propVideos }) => {
     },
   ];
 
+  const conuVideos = [
+    {
+      src: "https://www.youtube.com/embed/gm90rJEBIMU",
+      title: "Data Science Session",
+    },
+    {
+      src: "https://www.youtube.com/embed/cqqQoT3h4Q4",
+      title: "Data Science Session",
+    },
+  ];
+
+  const russellVideos = [
+    {
+      src: "https://www.youtube.com/embed/cqqQoT3h4Q4",
+      title: "Data Science Session",
+    },
+  ];
+
   let videos;
   if (propVideos) {
     videos = propVideos;
@@ -183,6 +215,18 @@ const LiveSessions = ({ videos: propVideos }) => {
         src: "https://www.youtube.com/embed/Xz529PeSV_o",
         title: "Data Science",
       },
+       {
+        src: "https://www.youtube.com/embed/jAk3URuAW80",
+        title: "Data Science",
+      },
+       {
+        src: "https://www.youtube.com/embed/unxso7YdrXQ",
+        title: "Data Science",
+      },
+      {
+        src: "https://www.youtube.com/embed/fhIfqScgqD4",
+        title: "Data Science",
+      },
     ];
   } else if (isArchana) {
     videos = archanaCyberVideos;
@@ -190,6 +234,10 @@ const LiveSessions = ({ videos: propVideos }) => {
     videos = roccoVideos;
   } else if (isMushfiq) {
     videos = mushfiqVideos;
+  } else if (isConu) {
+    videos = conuVideos;
+  } else if (isRussell) {
+    videos = russellVideos;
   } else {
     videos = cyberVideos;
   }

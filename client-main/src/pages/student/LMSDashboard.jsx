@@ -190,6 +190,14 @@ const LMSDashboard = () => {
                   src: "https://www.youtube.com/embed/0gI5VkxUpa0",
                   title: "Data Science Session",
                 },
+                {
+                  src: "https://www.youtube.com/embed/ROAeVEIFxjk",
+                  title: "Data Science Session",
+                },
+                {
+                  src: "https://www.youtube.com/embed/YDrHYjCM37Y",
+                  title: "Data Science Session",
+                },
               ]} />
             ) : (
               <LiveSessions />
