@@ -13,7 +13,7 @@ const MyEnrollments = ({ userEmail }) => {
     userEmail === 'archana.katangur@gmail.com' ||
     isRocco;
   const isConu = userEmail === 'conuwa.a@gmail.com';
-  const isRussell = userEmail === 'russeellmbakers@gmail.com';
+  const isRussell = userEmail === 'russellmbaker@gmail.com';
 
   // Set enrollment date based on user
   let enrollmentDate = '';

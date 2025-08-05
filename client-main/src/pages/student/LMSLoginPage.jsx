@@ -57,7 +57,7 @@ const LMSLoginPage = () => {
       sessionStorage.setItem('authUserName', 'onuwabuchi');
       navigate('/lms-dashboard');
     } else if (
-      (email === 'russeellmbakers@gmail.com' && password === 'Vedu@123')
+      (email === 'russellmbaker@gmail.com' && password === 'Vedu@123')
     ) {
       sessionStorage.setItem('authUserEmail', email);
       sessionStorage.setItem('authUserName', 'Russell');

@@ -168,7 +168,7 @@ const LMSDashboard = () => {
              userEmail === 'veemal16@gmail.com' ||
              userEmail === 'mushfiqrhmn1@gmail.com' ||
              userEmail === 'conuwa.a@gmail.com' ||
-             userEmail === 'russeellmbakers@gmail.com' ? (
+             userEmail === 'russellmbaker@gmail.com' ? (
               <DataScienceAssignments userEmail={userEmail} />
             ) : (
               <AssignmentsTasks />
