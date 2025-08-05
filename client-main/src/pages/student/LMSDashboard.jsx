@@ -40,6 +40,28 @@ const LMSDashboard = () => {
     }, 3000);
   };
 
+  // Helper for LiveSessions videos
+  const getLiveSessionVideos = (email) => {
+    if (!email) return [];
+    if (email === 'mushfiqrhmn1@gmail.com') {
+      return [
+        { src: "https://www.youtube.com/embed/_mC7gdoqOf4", title: "Data Science Session" },
+        { src: "https://www.youtube.com/embed/bt-sfIpT8F0", title: "Data Science Session" },
+        { src: "https://www.youtube.com/embed/0gI5VkxUpa0", title: "Data Science Session" },
+        { src: "https://www.youtube.com/embed/ROAeVEIFxjk", title: "Data Science Session" },
+        { src: "https://www.youtube.com/embed/YDrHYjCM37Y", title: "Data Science Session" },
+      ];
+    }
+    if (email === 'conuwa.a@gmail.com') {
+      return [
+        { src: "https://www.youtube.com/embed/gm90rJEBIMU", title: "Data Science Session" },
+        { src: "https://www.youtube.com/embed/cqqQoT3h4Q4", title: "Data Science Session" },
+      ];
+    }
+    // For other users, let LiveSessions handle logic (return undefined)
+    return undefined;
+  };
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
@@ -160,48 +182,18 @@ const LMSDashboard = () => {
 
         {/* Dynamic Content */}
         <section className="mt-6">
-          {activeSection === 'Dashboard' && <MyEnrollments userEmail={userEmail} />}
-          {activeSection === 'My Enrollments' && <MyEnrollments userEmail={userEmail} />}
+          {(activeSection === 'Dashboard' || activeSection === 'My Enrollments') && (
+            <MyEnrollments userEmail={userEmail} />
+          )}
           {activeSection === 'Progress Analytics' && <ProgressAnalytics />}
           {activeSection === 'Assignments / Tasks' &&
-            (userEmail === 'lucretiahenry@rocketmail.com' ||
-             userEmail === 'veemal16@gmail.com' ||
-             userEmail === 'mushfiqrhmn1@gmail.com' ||
-             userEmail === 'conuwa.a@gmail.com' ||
-             userEmail === 'russellmbaker@gmail.com' ? (
-              <DataScienceAssignments userEmail={userEmail} />
-            ) : (
-              <AssignmentsTasks />
-            ))}
-          {activeSection === 'Live Sessions / Recordings' &&
-            (userEmail === 'conuwa.a@gmail.com' || userEmail === 'russellmbaker@gmail.com' ? (
-              <LiveSessions videos={[]} />
-            ) : userEmail === 'mushfiqrhmn1@gmail.com' ? (
-              <LiveSessions videos={[
-                {
-                  src: "https://www.youtube.com/embed/_mC7gdoqOf4",
-                  title: "Data Science Session",
-                },
-                {
-                  src: "https://www.youtube.com/embed/bt-sfIpT8F0",
-                  title: "Data Science Session",
-                },
-                {
-                  src: "https://www.youtube.com/embed/0gI5VkxUpa0",
-                  title: "Data Science Session",
-                },
-                {
-                  src: "https://www.youtube.com/embed/ROAeVEIFxjk",
-                  title: "Data Science Session",
-                },
-                {
-                  src: "https://www.youtube.com/embed/YDrHYjCM37Y",
-                  title: "Data Science Session",
-                },
-              ]} />
-            ) : (
-              <LiveSessions />
-            ))}
+            (['lucretiahenry@rocketmail.com', 'veemal16@gmail.com', 'mushfiqrhmn1@gmail.com', 'conuwa.a@gmail.com', 'russellmbaker@gmail.com'].includes(userEmail)
+              ? <DataScienceAssignments userEmail={userEmail} />
+              : <AssignmentsTasks />
+            )}
+          {activeSection === 'Live Sessions / Recordings' && (
+            <LiveSessions videos={getLiveSessionVideos(userEmail)} />
+          )}
           {activeSection === 'Ask Mentor (Doubt Forum)' && <AskMentor />}
           {activeSection === 'Certificates' && (
             <div>
