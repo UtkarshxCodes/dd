@@ -174,7 +174,7 @@ const LMSDashboard = () => {
               <AssignmentsTasks />
             ))}
           {activeSection === 'Live Sessions / Recordings' &&
-            (userEmail === 'conuwa.a@gmail.com' || userEmail === 'russeellmbakers@gmail.com' ? (
+            (userEmail === 'conuwa.a@gmail.com' || userEmail === 'russellmbaker@gmail.com' ? (
               <LiveSessions videos={[]} />
             ) : userEmail === 'mushfiqrhmn1@gmail.com' ? (
               <LiveSessions videos={[
