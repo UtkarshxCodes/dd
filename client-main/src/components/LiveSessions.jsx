@@ -14,6 +14,8 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/jAk3URuAW80", title: "Data Science" },
     { src: "https://www.youtube.com/embed/unxso7YdrXQ", title: "Data Science" },
     { src: "https://www.youtube.com/embed/fhIfqScgqD4", title: "Data Science" },
+     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+    
   ],
   'veemal16@gmail.com': [
     { src: "https://www.youtube.com/embed/HDoDuVMqyTY", title: "Data Science" },
@@ -23,6 +25,9 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/jAk3URuAW80", title: "Data Science" },
     { src: "https://www.youtube.com/embed/unxso7YdrXQ", title: "Data Science" },
     { src: "https://www.youtube.com/embed/fhIfqScgqD4", title: "Data Science" },
+    { src: "https://www.youtube.com/embed/ROAeVEIFxjk", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/YDrHYjCM37Y", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
   ],
   'archana.katangur@gmail.com': [
     { src: "https://www.youtube.com/embed/emvxiMdmwMw", title: "V-EDU" },
@@ -34,6 +39,8 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/tn9g1TqgSSQ", title: "V-EDU" },
     { src: "https://www.youtube.com/embed/IbvZKlVbKxI", title: "V-EDU" },
     { src: "https://www.youtube.com/embed/vEepQqojGXg", title: "V-EDU" },
+    { src: "https://www.youtube.com/embed/MlO8Jl-k_MA", title: "V-EDU" },
+    { src: "https://www.youtube.com/embed/HlFTGqz20Zw", title: "V-EDU" },
   ],
   'roccosegreti@yahoo.com': [
     { src: "https://www.youtube.com/embed/qIAQeodpgw4", title: "Rocco Cybersecurity Session" },
@@ -43,13 +50,29 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/_mC7gdoqOf4", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/bt-sfIpT8F0", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/0gI5VkxUpa0", title: "Data Science Session" },
+     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
   ],
   'conuwa.a@gmail.com': [
     { src: "https://www.youtube.com/embed/gm90rJEBIMU", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/cqqQoT3h4Q4", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/ukz8sb7QNsQ", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/_JfrUvqS3d0", title: "Data Science Session" },
+     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+    
   ],
   'russellmbaker@gmail.com': [
     { src: "https://www.youtube.com/embed/cqqQoT3h4Q4", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/ukz8sb7QNsQ", title: "Data Science Session" },
+    { src: "https://www.youtube.com/embed/_JfrUvqS3d0", title: "Data Science Session" },
+     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+  ],
+  'albertq2000@yahoo.com': [
+    { src: "https://www.youtube.com/embed/emvxiMdmwMw", title: "Cybersecurity" },
+   
+  ],
+  'andinihamid1111@gmail.com': [
+    
+   
   ],
 };
 
@@ -64,6 +87,8 @@ const defaultVideos = [
   { src: "https://www.youtube.com/embed/tn9g1TqgSSQ", title: "V-EDU" },
   { src: "https://www.youtube.com/embed/IbvZKlVbKxI", title: "V-EDU" },
   { src: "https://www.youtube.com/embed/vEepQqojGXg", title: "V-EDU" },
+  { src: "https://www.youtube.com/embed/MlO8Jl-k_MA", title: "V-EDU" },
+  { src: "https://www.youtube.com/embed/HlFTGqz20Zw", title: "V-EDU" },
 ];
 
 const LiveSessions = ({ videos: propVideos }) => {

@@ -1,7 +1,10 @@
 import React from 'react';
 import { PieChart, Pie, Cell, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, BarChart, Bar } from 'recharts';
 
-const ProgressAnalytics = () => {
+const ProgressAnalytics = ({ userEmail }) => {
+  // If you want to customize for Albert, add logic here
+  // For now, use the same analytics as other cybersecurity users
+
   const pieData = [
     { name: 'Completed', value: 2 },
     { name: 'In Progress', value: 8 },

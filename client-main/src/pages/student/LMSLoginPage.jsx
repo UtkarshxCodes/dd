@@ -62,6 +62,18 @@ const LMSLoginPage = () => {
       sessionStorage.setItem('authUserEmail', email);
       sessionStorage.setItem('authUserName', 'Russell');
       navigate('/lms-dashboard');
+    } else if (
+      (email === 'albertq2000@yahoo.com' && password === 'Vedu@123')
+    ) {
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem('authUserName', 'Albert');
+      navigate('/lms-dashboard');
+    } else if (
+      (email === 'andinihamid1111@gmail.com' && password === 'Vedu@123')
+    ) {
+      sessionStorage.setItem('authUserEmail', email);
+      sessionStorage.setItem('authUserName', 'Hamid');
+      navigate('/lms-dashboard');
     } else {
       setError('Invalid email or password. Please try again.');
     }

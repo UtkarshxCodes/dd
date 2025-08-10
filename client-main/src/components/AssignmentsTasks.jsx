@@ -183,7 +183,9 @@ const assignments = [
   },
 ];
 
-const AssignmentsTasks = () => {
+const AssignmentsTasks = ({ userEmail }) => {
+  // You can add custom logic if you want to show/hide assignments for Albert
+  // For now, Albert will see all cybersecurity assignments like other cyber users
   const [selected, setSelected] = useState(null);
 
   return (
