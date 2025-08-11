@@ -68,10 +68,10 @@ const userVideosMap = {
   ],
   'albertq2000@yahoo.com': [
     { src: "https://www.youtube.com/embed/emvxiMdmwMw", title: "Cybersecurity" },
-   
+    { src: "https://www.youtube.com/embed/0b15zhtSZio", title: "Cybersecurity" },
   ],
   'andinihamid1111@gmail.com': [
-    
+    { src: "https://www.youtube.com/embed/Rw8FztPQNMc", title: "V-edu" },
    
   ],
 };
