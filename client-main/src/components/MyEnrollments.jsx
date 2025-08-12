@@ -16,6 +16,7 @@ const MyEnrollments = ({ userEmail }) => {
   // Add check for Albert
   const isAlbert = userEmail === 'albertq2000@yahoo.com';
   const isAndini = userEmail === 'andinihamid1111@gmail.com';
+  const isRayhan = userEmail === 'rayhanramadhany@gmail.com';
 
   // Set enrollment date based on user
   let enrollmentDate = '';
@@ -33,13 +34,15 @@ const MyEnrollments = ({ userEmail }) => {
     enrollmentDate = 'August 10, 2025';
   } else if (isAndini) {
     enrollmentDate = 'August 10, 2025';
+  } else if (isRayhan) {
+    enrollmentDate = 'August 12, 2025';
   }
 
   return (
     <div className="mt-6">
       <h3 className="text-lg font-bold mb-4">📚 My Enrollments</h3>
       <div className="bg-white p-6 rounded-lg shadow-md">
-        {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu || isRussell || isAndini) ? (
+        {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu || isRussell || isAndini || isRayhan) ? (
           <div className="border rounded-lg p-4 mb-6">
             <h4 className="text-xl font-bold mb-2">🎓 Data Science & AI</h4>
             <p className="text-sm text-gray-500 mb-2">Enrolled On: {enrollmentDate}</p>
@@ -85,7 +88,7 @@ const MyEnrollments = ({ userEmail }) => {
           <div className="border rounded-lg p-4">
             <h4 className="text-lg font-bold mb-4">📜 Curriculum Modules</h4>
             <ul className="space-y-4">
-              {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu || isRussell || isAndini) ? (
+              {(isLucretia || isVeemal || isRonesh || isMushfiq || isConu || isRussell || isAndini || isRayhan) ? (
                 <>
                   <li className="flex items-center gap-3">
                     <span>📊</span>

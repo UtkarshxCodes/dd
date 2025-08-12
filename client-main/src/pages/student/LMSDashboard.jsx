@@ -197,7 +197,8 @@ const LMSDashboard = () => {
               'mushfiqrhmn1@gmail.com',
               'conuwa.a@gmail.com',
               'russellmbaker@gmail.com',
-              'andinihamid1111@gmail.com' // <-- Add Andini here
+              'andinihamid1111@gmail.com',
+              'rayhanramadhany@gmail.com' // <-- Add Rayhan here
             ].includes(userEmail)
               ? <DataScienceAssignments userEmail={userEmail} />
               : <AssignmentsTasks userEmail={userEmail} />
