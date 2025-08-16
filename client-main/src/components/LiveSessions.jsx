@@ -68,6 +68,7 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/ukz8sb7QNsQ", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/_JfrUvqS3d0", title: "Data Science Session" },
      { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+      { src: "https://www.youtube.com/embed/Eb8WUo9RS8Q", title: "Data Science" },
   ],
   'albertq2000@yahoo.com': [
     { src: "https://www.youtube.com/embed/emvxiMdmwMw", title: "Cybersecurity" },
