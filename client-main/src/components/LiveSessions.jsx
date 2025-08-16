@@ -15,6 +15,7 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/unxso7YdrXQ", title: "Data Science" },
     { src: "https://www.youtube.com/embed/fhIfqScgqD4", title: "Data Science" },
      { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+      { src: "https://www.youtube.com/embed/Eb8WUo9RS8Q", title: "Data Science" },
     
   ],
   'veemal16@gmail.com': [
@@ -28,6 +29,7 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/ROAeVEIFxjk", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/YDrHYjCM37Y", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+     { src: "https://www.youtube.com/embed/Eb8WUo9RS8Q", title: "Data Science" },
   ],
   'archana.katangur@gmail.com': [
     { src: "https://www.youtube.com/embed/emvxiMdmwMw", title: "V-EDU" },
@@ -50,7 +52,8 @@ const userVideosMap = {
     { src: "https://www.youtube.com/embed/_mC7gdoqOf4", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/bt-sfIpT8F0", title: "Data Science Session" },
     { src: "https://www.youtube.com/embed/0gI5VkxUpa0", title: "Data Science Session" },
-     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+    { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
+    { src: "https://www.youtube.com/embed/Eb8WUo9RS8Q", title: "Data Science" },
   ],
   'conuwa.a@gmail.com': [
     { src: "https://www.youtube.com/embed/gm90rJEBIMU", title: "Data Science Session" },
