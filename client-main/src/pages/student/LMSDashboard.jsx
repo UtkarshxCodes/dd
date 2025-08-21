@@ -43,28 +43,18 @@ const LMSDashboard = () => {
   // Helper for LiveSessions videos
   const getLiveSessionVideos = (email) => {
     if (!email) return [];
-    if (email === 'mushfiqrhmn1@gmail.com') {
-      return [
-    { src: "https://www.youtube.com/embed/_mC7gdoqOf4", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/bt-sfIpT8F0", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/0gI5VkxUpa0", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/ROAeVEIFxjk", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/YDrHYjCM37Y", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
-      ];
-    }
-    if (email === 'conuwa.a@gmail.com') {
-      return [
-       { src: "https://www.youtube.com/embed/gm90rJEBIMU", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/cqqQoT3h4Q4", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/ukz8sb7QNsQ", title: "Data Science Session" },
-    { src: "https://www.youtube.com/embed/_JfrUvqS3d0", title: "Data Science Session" },
-     { src: "https://www.youtube.com/embed/9JkgX8_d7zI", title: "Data Science" },
-      ];
-    }
-    // For other users, let LiveSessions handle logic (return undefined)
+    // For onuwabuchi and shyfulla, show the same live sessions (handled in LiveSessions.jsx)
     return undefined;
   };
+
+  // Helper to check if user is a cybersecurity student (archana, albert, conuwa, shyfulla, etc)
+  const isCyberUser = [
+    'christianocampo1230@hotmail.com',
+    'archana.katangur@gmail.com',
+    'albertq2000@yahoo.com',
+    'conuwa.a@gmail.com',
+    'shyfulla@gmail.com'
+  ].includes(userEmail);
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -191,17 +181,9 @@ const LMSDashboard = () => {
           )}
           {activeSection === 'Progress Analytics' && <ProgressAnalytics userEmail={userEmail} />}
           {activeSection === 'Assignments / Tasks' &&
-            ([
-              'lucretiahenry@rocketmail.com',
-              'veemal16@gmail.com',
-              'mushfiqrhmn1@gmail.com',
-              'conuwa.a@gmail.com',
-              'russellmbaker@gmail.com',
-              'andinihamid1111@gmail.com',
-              'rayhanramadhany@gmail.com' // <-- Add Rayhan here
-            ].includes(userEmail)
-              ? <DataScienceAssignments userEmail={userEmail} />
-              : <AssignmentsTasks userEmail={userEmail} />
+            (isCyberUser
+              ? <AssignmentsTasks userEmail={userEmail} />
+              : <DataScienceAssignments userEmail={userEmail} />
             )}
           {activeSection === 'Live Sessions / Recordings' && (
             <LiveSessions videos={getLiveSessionVideos(userEmail)} />

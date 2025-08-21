@@ -13,10 +13,7 @@ import google_logo from './google.png'; // Added Google logo
 import amazon_logo from './amazon.png'; // Added Amazon logo
 import deloitte_logo from './deloitte.png'; // Added Deloitte logo
 import ibm_logo from './ibm.png'; // Added IBM logo
-import course_1_thumbnail from './course_1.png';
-import course_2_thumbnail from './course_2.png';
-import course_3_thumbnail from './course_3.png';
-import course_4_thumbnail from './course_4.png';
+
 import star from './rating_star.svg';
 import star_blank from './star_dull_icon.svg';
 import profile_img_1 from './profile_img_1.png';
@@ -41,7 +38,7 @@ import dropdown_icon from './dropdown_icon.svg';
 import patients_icon from './patients_icon.svg';
 import play_icon from './play_icon.svg';
 import blue_tick_icon from './blue_tick_icon.svg';
-import course_4 from './course_4.png';
+
 import profile_img from './profile_img.png';
 import profile_img2 from './profile_img2.png';
 import profile_img3 from './profile_img3.png';
@@ -96,10 +93,6 @@ export const assets = {
     amazon_logo, // Added Amazon logo
     deloitte_logo, // Added Deloitte logo
     ibm_logo, // Added IBM logo
-    course_1_thumbnail,
-    course_2_thumbnail,
-    course_3_thumbnail,
-    course_4_thumbnail,
     star,
     star_blank,
     profile_img_1,
@@ -121,7 +114,6 @@ export const assets = {
     facebook_icon,
     instagram_icon,
     twitter_icon,
-    course_4,
     file_upload_icon,
     appointments_icon,
     earning_icon,
